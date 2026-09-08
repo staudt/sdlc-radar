@@ -7,79 +7,170 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <p class="eyebrow">SDLC Radar</p>
-      <h1>Current state of AI software development, QA, and test automation</h1>
-      <p class="lede">A living dashboard built from daily radar editions. It tracks where the market is actually moving, what is ready for use now, what deserves experimentation, and what still needs proof.</p>
-      <div class="hero-actions">
-        <a class="button primary" href="editions/">Browse editions</a>
-        <a class="button" href="about.html">About this project</a>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <div>
+        <p class="eyebrow">SDLC Radar</p>
+        <h1>AI native software development, QA, and test automation</h1>
       </div>
+      <a class="button" href="about.html">About</a>
     </div>
   </header>
 
   <main class="wrap">
-    <section class="grid four-up stat-grid">
-      <article class="card stat"><h2>Production now</h2><p class="big">4</p><p>Patterns with enough repeated signal to recommend confidently in consulting assessments.</p></article>
-      <article class="card stat"><h2>Experiment now</h2><p class="big">7</p><p>Important near term capabilities where the value is high but implementation quality still varies.</p></article>
-      <article class="card stat"><h2>Watch closely</h2><p class="big">5</p><p>Promising approaches that are real, but not mature enough to recommend broadly.</p></article>
-      <article class="card stat accent"><h2>Main signal</h2><p>AI native SDLC is becoming less about single models and more about <strong>governed agent workflows with independent quality gates</strong>.</p></article>
-    </section>
-
-    <section class="dashboard-layout">
-      <article class="card radar-card">
-        <div class="section-head"><h2>Radar view</h2><p>Signals grouped by current maturity and business importance.</p></div>
-        <svg class="radar" viewBox="0 0 620 620" role="img" aria-label="Technology radar for AI SDLC and QA">
-          <circle cx="310" cy="310" r="250" class="ring"></circle>
-          <circle cx="310" cy="310" r="185" class="ring"></circle>
-          <circle cx="310" cy="310" r="120" class="ring"></circle>
-          <circle cx="310" cy="310" r="60" class="ring"></circle>
-          <line x1="310" y1="60" x2="310" y2="560" class="axis"></line>
-          <line x1="60" y1="310" x2="560" y2="310" class="axis"></line>
-          <text x="310" y="30" text-anchor="middle" class="quad">Engineering flow</text>
-          <text x="587" y="315" text-anchor="end" class="quad">Governance</text>
-          <text x="310" y="600" text-anchor="middle" class="quad">QA and testing</text>
-          <text x="30" y="315" class="quad">Tooling</text>
-          <g><circle cx="300" cy="110" r="10" class="dot production"></circle><text x="318" y="114" class="label">Playwright CLI for agents</text></g>
-          <g><circle cx="430" cy="195" r="10" class="dot production"></circle><text x="448" y="199" class="label">Policy separated CI agents</text></g>
-          <g><circle cx="420" cy="375" r="10" class="dot experiment"></circle><text x="438" y="379" class="label">Independent agent quality gates</text></g>
-          <g><circle cx="268" cy="455" r="10" class="dot experiment"></circle><text x="286" y="459" class="label">Spec to test enrichment</text></g>
-          <g><circle cx="180" cy="395" r="10" class="dot watch"></circle><text x="50" y="399" class="label">MCP as a QA surface</text></g>
-          <g><circle cx="180" cy="215" r="10" class="dot watch"></circle><text x="40" y="219" class="label">Multi agent coding rooms</text></g>
-          <g><circle cx="325" cy="535" r="10" class="dot experiment"></circle><text x="343" y="539" class="label">Adversarial test validation</text></g>
-        </svg>
-        <div class="legend"><span><i class="swatch production"></i> Production now</span><span><i class="swatch experiment"></i> Experiment now</span><span><i class="swatch watch"></i> Watch closely</span></div>
+    <section class="top-insights">
+      <article class="card main-signal">
+        <p class="card-kicker">Main signal</p>
+        <h2>AI native SDLC is becoming a governed workflow, not a single model.</h2>
+        <p>The strongest implementations separate agent reasoning, deterministic execution, independent verification, and privileged approval. QA is increasingly the control layer that makes that autonomy trustworthy.</p>
       </article>
 
-      <aside class="stack">
-        <article class="card">
-          <div class="section-head"><h2>Current picture</h2><p>The market signals that keep repeating across recent editions.</p></div>
-          <ul class="signal-list">
-            <li><strong>Testing is becoming a control system</strong><br>Pass rate alone is no longer enough. Stronger setups add independent validation, trajectory review, mutation style checks, and policy gates.</li>
-            <li><strong>Agent workflows matter more than single models</strong><br>Separation between reasoning, execution, and approval is becoming a core architectural pattern.</li>
-            <li><strong>QA is moving earlier</strong><br>Specification enrichment and requirements formalization are becoming higher value than only downstream automation.</li>
-            <li><strong>Narrow autonomous agents are winning first</strong><br>Consistency checking, CI investigation, and focused review agents look more practical than broad autonomous QA claims.</li>
-          </ul>
-        </article>
-        <article class="card">
-          <div class="section-head"><h2>Top consulting questions</h2><p>High value prompts for discovery and assessment work.</p></div>
-          <ol class="question-list">
-            <li>Are requirements explicit enough for agents to act on safely?</li>
-            <li>Can generated code and generated tests be independently validated?</li>
-            <li>Does CI expose useful evidence for agent investigation?</li>
-            <li>Are agent permissions separated from privileged execution?</li>
-            <li>Where can narrow agent workflows reduce test maintenance or increase discovery quality?</li>
-          </ol>
-        </article>
+      <article class="card current-picture">
+        <div class="section-head">
+          <h2>Current picture</h2>
+          <p>Patterns that keep repeating across recent editions.</p>
+        </div>
+        <ul class="signal-list compact">
+          <li><strong>Testing is becoming a control system.</strong> Pass rate alone is no longer enough.</li>
+          <li><strong>QA is moving earlier.</strong> Specification quality increasingly determines agent quality.</li>
+          <li><strong>Narrow agents are winning first.</strong> Focused investigation and consistency checks are proving more useful than broad autonomy claims.</li>
+          <li><strong>Permissions are architecture.</strong> Reasoning and privileged execution increasingly need separate trust boundaries.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="radar-layout">
+      <article class="card radar-card">
+        <div class="section-head radar-head">
+          <div>
+            <h2>SDLC radar</h2>
+            <p>Select a signal to see why it matters and where to go deeper.</p>
+          </div>
+          <div class="legend" aria-label="Radar maturity legend">
+            <span><i class="swatch is-production"></i>Production now</span>
+            <span><i class="swatch is-experiment"></i>Experiment now</span>
+            <span><i class="swatch is-watch"></i>Watch closely</span>
+          </div>
+        </div>
+
+        <svg class="radar" viewBox="0 0 700 650" role="img" aria-labelledby="radar-title radar-desc">
+          <title id="radar-title">AI SDLC technology radar</title>
+          <desc id="radar-desc">Clickable signals organized into engineering flow, governance, QA and testing, and tooling. Distance from the center indicates maturity.</desc>
+
+          <circle cx="350" cy="325" r="235" class="ring ring-watch"></circle>
+          <circle cx="350" cy="325" r="160" class="ring ring-experiment"></circle>
+          <circle cx="350" cy="325" r="85" class="ring ring-production"></circle>
+          <line x1="350" y1="90" x2="350" y2="560" class="axis"></line>
+          <line x1="115" y1="325" x2="585" y2="325" class="axis"></line>
+
+          <text x="350" y="54" text-anchor="middle" class="quad">Engineering flow</text>
+          <text x="650" y="332" text-anchor="end" class="quad">Governance</text>
+          <text x="350" y="610" text-anchor="middle" class="quad">QA and testing</text>
+          <text x="50" y="332" class="quad">Tooling</text>
+
+          <g class="radar-item selected" tabindex="0" role="button" aria-label="Playwright CLI for agents, Production now" data-key="playwright">
+            <circle cx="335" cy="245" r="12" class="dot is-production"></circle>
+            <text x="354" y="250" class="label">Playwright CLI for agents</text>
+          </g>
+
+          <g class="radar-item" tabindex="0" role="button" aria-label="Policy separated CI agents, Production now" data-key="policy-ci">
+            <circle cx="405" cy="270" r="12" class="dot is-production"></circle>
+            <text x="424" y="275" class="label">Policy separated CI agents</text>
+          </g>
+
+          <g class="radar-item" tabindex="0" role="button" aria-label="Independent agent quality gates, Experiment now" data-key="quality-gates">
+            <circle cx="493" cy="368" r="12" class="dot is-experiment"></circle>
+            <text x="512" y="373" class="label">Independent agent quality gates</text>
+          </g>
+
+          <g class="radar-item" tabindex="0" role="button" aria-label="Specification to test enrichment, Experiment now" data-key="spec-enrichment">
+            <circle cx="302" cy="465" r="12" class="dot is-experiment"></circle>
+            <text x="321" y="470" class="label">Spec to test enrichment</text>
+          </g>
+
+          <g class="radar-item" tabindex="0" role="button" aria-label="Adversarial test validation, Experiment now" data-key="adversarial">
+            <circle cx="393" cy="470" r="12" class="dot is-experiment"></circle>
+            <text x="412" y="475" class="label">Adversarial test validation</text>
+          </g>
+
+          <g class="radar-item" tabindex="0" role="button" aria-label="MCP as a QA surface, Watch closely" data-key="mcp-qa">
+            <circle cx="150" cy="410" r="12" class="dot is-watch"></circle>
+            <text x="170" y="415" class="label">MCP as a QA surface</text>
+          </g>
+
+          <g class="radar-item" tabindex="0" role="button" aria-label="Multi agent coding workflows, Watch closely" data-key="multi-agent">
+            <circle cx="185" cy="175" r="12" class="dot is-watch"></circle>
+            <text x="205" y="180" class="label">Multi agent coding workflows</text>
+          </g>
+        </svg>
+      </article>
+
+      <aside class="card radar-detail" aria-live="polite">
+        <p class="card-kicker" id="detail-maturity">Production now</p>
+        <h2 id="detail-title">Playwright CLI for agents</h2>
+        <p id="detail-summary">Browser automation is becoming a native capability for coding and testing agents. Playwright CLI gives agents a compact, deterministic interface for inspection, test generation, execution, diagnosis, and repair without forcing every interaction through a large MCP tool surface.</p>
+        <h3>Why it matters</h3>
+        <p id="detail-why">This is a practical bridge between coding agents and mature browser automation. It also reinforces a broader pattern: use deterministic tools underneath the agent and reserve model reasoning for interpretation and decision making.</p>
+        <a class="button primary detail-link" id="detail-link" href="topics/qa-and-testing.html">Open deeper view</a>
       </aside>
     </section>
 
-    <section class="grid three-up">
-      <article class="card topic-card"><h2>Agentic SDLC</h2><p>Patterns for orchestrating design, implementation, validation, and approval with agents in the loop.</p><a href="topics/agentic-sdlc.html">Open deep dive</a></article>
-      <article class="card topic-card"><h2>QA and testing</h2><p>How modern QA is shifting toward specification quality, validation architecture, and bounded autonomous investigation.</p><a href="topics/qa-and-testing.html">Open deep dive</a></article>
-      <article class="card topic-card"><h2>Evaluation and governance</h2><p>Emerging quality gates, trust boundaries, MCP concerns, and the move beyond green pipelines.</p><a href="topics/evaluation-and-governance.html">Open deep dive</a></article>
+    <section class="lower-grid">
+      <article class="card">
+        <div class="section-head">
+          <h2>Top consulting questions</h2>
+          <p>Questions increasingly worth adding to discovery and assessment work.</p>
+        </div>
+        <ol class="question-list">
+          <li>Are requirements explicit enough for agents to act on safely?</li>
+          <li>Can generated code and generated tests be independently validated?</li>
+          <li>Does CI expose enough useful evidence for agent investigation?</li>
+          <li>Are agent permissions separated from privileged execution?</li>
+          <li>Where can narrow agent workflows reduce test maintenance or improve discovery quality?</li>
+          <li>Can the team measure agent quality beyond a green pipeline?</li>
+        </ol>
+      </article>
+
+      <article class="card">
+        <div class="section-head">
+          <h2>Deep dives</h2>
+          <p>Living synthesis pages that evolve as the evidence changes.</p>
+        </div>
+        <div class="topic-list">
+          <a href="topics/agentic-sdlc.html"><strong>Agentic SDLC</strong><span>Workflow architecture, orchestration, and safe autonomy</span></a>
+          <a href="topics/qa-and-testing.html"><strong>QA and testing</strong><span>Specification quality, agent testing, and validation architecture</span></a>
+          <a href="topics/evaluation-and-governance.html"><strong>Evaluation and governance</strong><span>Quality gates, trust boundaries, and approval models</span></a>
+          <a href="topics/coding-agents.html"><strong>Coding agents</strong><span>Capabilities, constraints, context, and execution patterns</span></a>
+          <a href="topics/mcp-and-tooling.html"><strong>MCP and tooling</strong><span>Agent integration surfaces, testability, and security</span></a>
+        </div>
+      </article>
+    </section>
+
+    <section class="card editions" id="editions">
+      <div class="section-head editions-head">
+        <div>
+          <h2>Radar editions</h2>
+          <p>The chronological evidence trail behind the current picture.</p>
+        </div>
+        <span class="edition-count">Aug 19 to Sep 8, 2026</span>
+      </div>
+      <div class="edition-list">
+        <article><time datetime="2026-09-08">Sep 8</time><div><strong>Quality gates beyond test pass rate</strong><p>SWE Gate, autonomous visual testing, and uncertainty gates reinforce the need for richer acceptance evidence.</p></div></article>
+        <article><time datetime="2026-09-07">Sep 7</time><div><strong>Governed multi agent workflows</strong><p>Multi model orchestration, isolation, bounded maintenance, and explicit human acceptance authority.</p></div></article>
+        <article><time datetime="2026-09-04">Sep 4</time><div><strong>Specialized QE agents need independent verification</strong><p>Agent native QE is becoming more concrete, but generated tests and actions still need separate quality gates.</p></div></article>
+        <article><time datetime="2026-09-03">Sep 3</time><div><strong>Evaluation granularity matters</strong><p>Broad benchmark labels hide difficulty differences, while narrow review agents show a more practical intervention pattern.</p></div></article>
+        <article><time datetime="2026-09-02">Sep 2</time><div><strong>MCP becomes a first class QA surface</strong><p>Agent integrations increasingly need contract testing, observability, access control, and deterministic fallbacks.</p></div></article>
+        <article><time datetime="2026-09-01">Sep 1</time><div><strong>Context efficient browser control</strong><p>Playwright CLI and trajectory grading point toward smaller tool surfaces and richer evaluation of agent execution.</p></div></article>
+        <article><time datetime="2026-08-31">Aug 31</time><div><strong>Governed execution over model choice</strong><p>Runtime gating, trajectory graders, and explicit coordination matter more than simply adding more agents.</p></div></article>
+        <article><time datetime="2026-08-28">Aug 28</time><div><strong>Closed loop verification</strong><p>AgentDV and AgentJudgeBench reinforce feedback driven verification and the limits of using LLM judges as final authority.</p></div></article>
+        <article><time datetime="2026-08-27">Aug 27</time><div><strong>Architecture goals need their own validation</strong><p>Refactoring benchmarks show that behavioral tests can pass while a modernization effort still misses its structural objective.</p></div></article>
+        <article><time datetime="2026-08-20">Aug 20</time><div><strong>QA becomes the control system</strong><p>Proactive defect discovery, specification enrichment, security architecture, and repository consistency agents.</p></div></article>
+        <article><time datetime="2026-08-19">Aug 19</time><div><strong>Agents move inside the SDLC</strong><p>Playwright skills, agentic CI, adversarial validation, and policy controlled execution establish the first recurring architecture.</p></div></article>
+      </div>
+      <p class="archive-note">Detailed historical issue pages will be backfilled from the original newsletters. The list stays here so the dashboard remains the primary entry point.</p>
     </section>
   </main>
+
+  <script src="assets/radar.js"></script>
 </body>
 </html>
