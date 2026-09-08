@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AI SDLC Radar | 2026-09-07</title><link rel="stylesheet" href="../assets/style.css?v=20260908-5"></head>
+<body><main class="wrap edition-page"><nav class="edition-nav"><a href="../index.html#editions">← Back to dashboard</a></nav><article class="edition-article"><p class="edition-date">September 7, 2026</p><h1>AI SDLC Radar</h1><div class="edition-body">
+<p>A concise scan of meaningful changes in AI software development, QA, test automation, agent engineering, and SDLC architecture.</p>
+<h2>Main signal</h2>
+<p><strong>The next step in agentic software development is looking less like pick the best coding model and more like build a governed execution system around several models and deterministic controls.</strong></p>
+<p>The strongest developments this week point in the same direction: selective model routing, independent critics, fail safe patch application, stronger runtime isolation, small autonomous change batches, and explicit human acceptance authority. QA is increasingly the architecture that decides whether agent output is trustworthy enough to move forward.</p>
+<h2>1. Multi model orchestration is becoming a coding agent runtime primitive</h2>
+<p><strong>Experiment now</strong></p>
+<p>GitHub introduced <a href="https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/" target="_blank" rel="noopener">Project HydraFusion</a> on September 4 as a Copilot CLI research preview. Instead of routing an entire task to one model, HydraFusion chooses among three execution patterns: a single model, a cascade where a cheaper model attempts the work before escalation, or a critique loop where one model drafts and an independent model family reviews the result before revision.</p>
+<p>The important part for QA is the architecture. Review runs in an isolated, tool less context, solver steps share the repository workspace, failed validation applies no patch, and the runtime records cost, latency, role, outcome, and diagnostics for every leg. That is much closer to an engineering control system than a simple model router.</p>
+<p>GitHub reports that its best tuned configuration improved verified quality by 4.9 percentage points on TerminalBench 2.1 while reducing estimated cost by 67% versus the evaluated Opus 5 baseline. On DeepSWE it came within 1.5 points while cutting estimated cost by 36%. These are controlled offline results, not production guarantees, but they provide evidence that independent critique plus selective escalation can outperform blind use of the strongest model.</p>
+<p><strong>SDLC fit:</strong> implementation, review, agent quality gates, cost governance, CI decisioning.</p>
+<h2>2. Agent runtime isolation is becoming an SDLC architecture decision</h2>
+<p><strong>Watch closely</strong></p>
+<p>GitHub Agentic Workflows announced on September 5 that its stronger sandbox path is consolidating on Cloud Hypervisor microVMs. The older gVisor and docker-sbx options are being deprecated, while ordinary Docker remains available for lower risk workflows with network isolation and proxy enforcement.</p>
+<p>This matters because runtime choice is becoming part of agent governance. A read only documentation agent, a browser agent, and an autonomous code changing agent do not need the same containment boundary. As agents gain repository access, network access, browser control, secrets, and CI privileges, execution isolation should be assessed like any other deployment architecture concern.</p>
+<p><strong>Assessment implication:</strong> add agent runtime, network policy, filesystem scope, secret exposure, tool allowlists, and privilege boundaries to AI SDLC discovery work.</p>
+<p><a href="https://github.github.com/gh-aw/blog/2026-09-05-cloud-hypervisor-consolidation/" target="_blank" rel="noopener">GitHub Agentic Workflows microVM consolidation</a></p>
+<h2>3. Small, bounded autonomous maintenance loops look more production ready than broad autonomous agents</h2>
+<p><strong>Experiment now</strong></p>
+<p>GitHub's September 7 Agentic Workflows update highlights a dead code remover agent that uses static analysis, removes at most five unreachable functions per run, and opens a small PR. In recent runs it produced two clean five function removal PRs and one no-op failure rather than forcing an unsafe change.</p>
+<p>The pattern is more useful than the demo itself. Autonomous maintenance becomes easier to trust when the task has a deterministic detector, a narrow modification scope, a hard batch limit, a reviewable diff, and permission to do nothing.</p>
+<p>This maps well to QA automation. Similar agents could target stale tests, duplicate fixtures, disabled assertions, unused page objects, flaky test candidates, API schema drift, dead feature flags, or missing test metadata.</p>
+<p><strong>Pattern:</strong> deterministic signal → bounded agent change → deterministic verification → human reviewable PR.</p>
+<p><a href="https://github.github.com/gh-aw/blog/2026-09-07-weekly-update/" target="_blank" rel="noopener">GitHub Agentic Workflows weekly update</a></p>
+<h2>4. Human acceptance authority is emerging as the real scaling constraint</h2>
+<p><strong>Watch closely</strong></p>
+<p>A September 4 software engineering paper proposes a useful distinction between scalable agent execution and residual risk acceptance. Agents can parallelize repository analysis, implementation, tests, migrations, and tool use, but organizations still need an explicit authority that decides whether a change is acceptable to merge, release, or operate.</p>
+<p>The paper is conceptual rather than empirical, but it captures a problem that is becoming visible in real agent systems: execution capacity can scale much faster than review and acceptance capacity.</p>
+<p>For QA leaders, that suggests a future bottleneck. The question may stop being “can the agent implement this?” and become “what evidence must exist before the organization accepts this agent produced change?”</p>
+<p><a href="https://arxiv.org/abs/2609.04630" target="_blank" rel="noopener">Software Engineering in the Agent Era</a></p>
+<h2>Emerging pattern</h2>
+<ul><li>The unit of optimization is shifting from the model to the agent workflow.</li><li>Independent critics and verification are being separated from implementation contexts.</li><li>Runtime isolation and permission boundaries are becoming first class SDLC architecture choices.</li><li>Narrow autonomous agents with explicit limits look more deployable than general repository agents.</li><li>QA evidence is becoming the mechanism that converts agent execution into acceptable software change.</li></ul>
+<h2>Consulting angle</h2>
+<ul><li>Independent verification between implementation and acceptance</li><li>Agent runtime isolation and privilege boundaries</li><li>Deterministic quality gates that agents cannot rewrite to make themselves pass</li><li>Model and workflow routing based on task risk, cost, and complexity</li><li>Per agent observability for cost, tool calls, failures, retries, and outcomes</li><li>Explicit ownership of final merge and release acceptance</li><li>Bounded autonomy patterns for maintenance, triage, and test improvement</li></ul>
+<p>Clients are likely to increasingly expect consultants not just to recommend AI tools, but to define the verification, governance, and execution architecture around those tools.</p>
+</div></article></main></body></html>
