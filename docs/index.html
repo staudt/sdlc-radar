@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SDLC Radar</title>
-  <link rel="stylesheet" href="assets/style.css?v=20260908-4">
+  <link rel="stylesheet" href="assets/style.css?v=20260908-5">
 </head>
 <body>
   <header class="site-header">
@@ -123,74 +123,60 @@
       </aside>
     </section>
 
-    <section class="lower-grid">
-      <article class="card consulting-card">
-        <div class="section-head">
-          <h2>Top consulting questions</h2>
-          <p>Questions increasingly worth adding to discovery and assessment work.</p>
-        </div>
-        <ol class="question-list">
-          <li>Are requirements explicit enough for agents to act on safely?</li>
-          <li>Can generated code and generated tests be independently validated?</li>
-          <li>Does CI expose enough useful evidence for agent investigation?</li>
-          <li>Are agent permissions separated from privileged execution?</li>
-          <li>Where can narrow agent workflows reduce test maintenance or improve discovery quality?</li>
-          <li>Can the team measure agent quality beyond a green pipeline?</li>
-        </ol>
-      </article>
+    <section class="card topics-section">
+      <div class="section-head">
+        <h2>Topics</h2>
+        <p>Short living summaries of the areas that matter most right now. Select a topic to update the panel.</p>
+      </div>
 
-      <article class="card topics-card">
-        <div class="section-head">
-          <h2>Topics</h2>
-          <p>Click a category for the current short-form view. These are living summaries rather than separate pages.</p>
+      <div class="topic-browser full-width-topics">
+        <div class="topic-options" role="tablist" aria-label="SDLC Radar topics">
+          <button class="topic-option selected" type="button" data-topic="agentic" role="tab" aria-selected="true">Agentic SDLC</button>
+          <button class="topic-option" type="button" data-topic="qa" role="tab" aria-selected="false">QA and testing</button>
+          <button class="topic-option" type="button" data-topic="evaluation" role="tab" aria-selected="false">Evaluation and governance</button>
+          <button class="topic-option" type="button" data-topic="coding" role="tab" aria-selected="false">Coding agents</button>
+          <button class="topic-option" type="button" data-topic="mcp" role="tab" aria-selected="false">MCP and tooling</button>
+          <button class="topic-option" type="button" data-topic="consulting" role="tab" aria-selected="false">Consulting questions</button>
         </div>
-        <div class="topic-browser">
-          <div class="topic-options" role="tablist" aria-label="SDLC Radar topics">
-            <button class="topic-option selected" type="button" data-topic="agentic" role="tab" aria-selected="true">Agentic SDLC</button>
-            <button class="topic-option" type="button" data-topic="qa" role="tab" aria-selected="false">QA and testing</button>
-            <button class="topic-option" type="button" data-topic="evaluation" role="tab" aria-selected="false">Evaluation and governance</button>
-            <button class="topic-option" type="button" data-topic="coding" role="tab" aria-selected="false">Coding agents</button>
-            <button class="topic-option" type="button" data-topic="mcp" role="tab" aria-selected="false">MCP and tooling</button>
-          </div>
-          <div class="topic-detail" aria-live="polite">
-            <h3 id="topic-title">Agentic SDLC</h3>
-            <p id="topic-summary">The durable pattern is a governed workflow: agents handle interpretation and planning, deterministic systems handle reproducible execution, and policy boundaries control privileged actions.</p>
-            <ul id="topic-points">
-              <li>Use agents where reasoning is valuable, not as a replacement for every deterministic step.</li>
-              <li>Separate read and reasoning privileges from write and deployment privileges.</li>
-              <li>Favor focused workflows that can be observed and evaluated over broad autonomy claims.</li>
-            </ul>
-            <div class="reference-links compact-references" id="topic-references">
-              <a href="https://github.github.com/gh-aw/introduction/how-they-work/" target="_blank" rel="noopener">GitHub Agentic Workflows architecture</a>
-              <a href="https://github.github.com/gh-aw/reference/safe-outputs/" target="_blank" rel="noopener">Safe Outputs</a>
-            </div>
+
+        <div class="topic-detail" aria-live="polite">
+          <h3 id="topic-title">Agentic SDLC</h3>
+          <p id="topic-summary">The durable pattern is a governed workflow: agents handle interpretation and planning, deterministic systems handle reproducible execution, and policy boundaries control privileged actions.</p>
+          <ul id="topic-points">
+            <li>Use agents where reasoning is valuable, not as a replacement for every deterministic step.</li>
+            <li>Separate read and reasoning privileges from write and deployment privileges.</li>
+            <li>Favor focused workflows that can be observed and evaluated over broad autonomy claims.</li>
+          </ul>
+          <div class="reference-links compact-references" id="topic-references">
+            <a href="https://github.github.com/gh-aw/introduction/how-they-work/" target="_blank" rel="noopener">GitHub Agentic Workflows architecture</a>
+            <a href="https://github.github.com/gh-aw/reference/safe-outputs/" target="_blank" rel="noopener">Safe Outputs</a>
           </div>
         </div>
-      </article>
+      </div>
     </section>
 
     <section class="card editions" id="editions">
       <div class="section-head editions-head">
         <div>
-          <h2>Radar editions</h2>
-          <p>The chronological evidence trail behind the current picture.</p>
+          <h2>Previous editions</h2>
+          <p>The original Radar issues behind the current picture. Open any edition to read the full report.</p>
         </div>
         <span class="edition-count">Aug 19 to Sep 8, 2026</span>
       </div>
-      <div class="edition-list">
-        <article><time datetime="2026-09-08">Sep 8</time><div><strong>Quality gates beyond test pass rate</strong><p>SWE Gate, autonomous visual testing, and uncertainty gates reinforce the need for richer acceptance evidence.</p></div></article>
-        <article><time datetime="2026-09-07">Sep 7</time><div><strong>Governed multi agent workflows</strong><p>Multi model orchestration, isolation, bounded maintenance, and explicit human acceptance authority.</p></div></article>
-        <article><time datetime="2026-09-04">Sep 4</time><div><strong>Specialized QE agents need independent verification</strong><p>Agent native QE is becoming more concrete, but generated tests and actions still need separate quality gates.</p></div></article>
-        <article><time datetime="2026-09-03">Sep 3</time><div><strong>Evaluation granularity matters</strong><p>Broad benchmark labels hide difficulty differences, while narrow review agents show a more practical intervention pattern.</p></div></article>
-        <article><time datetime="2026-09-02">Sep 2</time><div><strong>MCP becomes a first class QA surface</strong><p>Agent integrations increasingly need contract testing, observability, access control, and deterministic fallbacks.</p></div></article>
-        <article><time datetime="2026-09-01">Sep 1</time><div><strong>Context efficient browser control</strong><p>Playwright CLI and trajectory grading point toward smaller tool surfaces and richer evaluation of agent execution.</p></div></article>
-        <article><time datetime="2026-08-31">Aug 31</time><div><strong>Governed execution over model choice</strong><p>Runtime gating, trajectory graders, and explicit coordination matter more than simply adding more agents.</p></div></article>
-        <article><time datetime="2026-08-28">Aug 28</time><div><strong>Closed loop verification</strong><p>AgentDV and AgentJudgeBench reinforce feedback driven verification and the limits of using LLM judges as final authority.</p></div></article>
-        <article><time datetime="2026-08-27">Aug 27</time><div><strong>Architecture goals need their own validation</strong><p>Refactoring benchmarks show that behavioral tests can pass while a modernization effort still misses its structural objective.</p></div></article>
-        <article><time datetime="2026-08-20">Aug 20</time><div><strong>QA becomes the control system</strong><p>Proactive defect discovery, specification enrichment, security architecture, and repository consistency agents.</p></div></article>
-        <article><time datetime="2026-08-19">Aug 19</time><div><strong>Agents move inside the SDLC</strong><p>Playwright skills, agentic CI, adversarial validation, and policy controlled execution establish the first recurring architecture.</p></div></article>
+
+      <div class="edition-grid">
+        <a class="edition-card" href="editions/2026-09-08.html"><time datetime="2026-09-08">Sep 8</time><strong>Quality gates beyond test pass rate</strong><span>SWE-Gate, autonomous visual testing, and uncertainty gates.</span></a>
+        <a class="edition-card" href="editions/2026-09-07.html"><time datetime="2026-09-07">Sep 7</time><strong>Governed multi agent workflows</strong><span>Multi model orchestration, isolation, bounded maintenance, and acceptance authority.</span></a>
+        <a class="edition-card" href="editions/2026-09-04.html"><time datetime="2026-09-04">Sep 4</time><strong>Specialized QE agents need independent verification</strong><span>Agentic QE, test quality gates, and supply chain trust.</span></a>
+        <a class="edition-card" href="editions/2026-09-03.html"><time datetime="2026-09-03">Sep 3</time><strong>Evaluation granularity matters</strong><span>Representative task portfolios and narrow review agents.</span></a>
+        <a class="edition-card" href="editions/2026-09-02.html"><time datetime="2026-09-02">Sep 2</time><strong>MCP becomes a first class QA surface</strong><span>Tool contracts, isolated workspaces, and governed CI.</span></a>
+        <a class="edition-card" href="editions/2026-09-01.html"><time datetime="2026-09-01">Sep 1</time><strong>Context efficient browser control</strong><span>Playwright CLI, trajectory grading, and confidence based autonomy.</span></a>
+        <a class="edition-card" href="editions/2026-08-31.html"><time datetime="2026-08-31">Aug 31</time><strong>Governed execution over model choice</strong><span>Runtime gating, trajectory graders, and coordinated agent work.</span></a>
+        <a class="edition-card" href="editions/2026-08-28.html"><time datetime="2026-08-28">Aug 28</time><strong>Closed loop verification</strong><span>AgentDV, AgentJudgeBench, and objective verification.</span></a>
+        <a class="edition-card" href="editions/2026-08-27.html"><time datetime="2026-08-27">Aug 27</time><strong>Architecture goals need their own validation</strong><span>Refactoring benchmarks, GUI robustness, harnesses, and steering.</span></a>
+        <a class="edition-card" href="editions/2026-08-20.html"><time datetime="2026-08-20">Aug 20</time><strong>QA becomes the control system</strong><span>Proactive discovery, specification enrichment, and safe agentic CI.</span></a>
+        <a class="edition-card" href="editions/2026-08-19.html"><time datetime="2026-08-19">Aug 19</time><strong>Agents move inside the SDLC</strong><span>Playwright skills, agentic CI, adversarial validation, and MCP testing.</span></a>
       </div>
-      <p class="archive-note">Detailed historical issue pages can be backfilled from the original newsletters later. The list stays here so the dashboard remains the primary entry point.</p>
     </section>
   </main>
 
@@ -223,14 +209,14 @@
         summary: 'A green test run is no longer enough evidence for agent generated work. Newer approaches add independent graders, review constraint checks, trajectory review, mutation style validation, and other forms of second order verification.',
         why: 'The same agent that wrote code or tests can share the same blind spots. Independent evaluation creates a more credible acceptance layer and is becoming one of the most important QA architecture questions for AI driven teams.',
         references: [
-          ['SWE-Gate paper', 'https://arxiv.org/abs/2609.04167'],
-          ['SWE-Gate repository', 'https://github.com/DeepSoftwareAnalytics/SWE-Gate']
+          ['SWE-Gate', 'https://arxiv.org/html/2609.04167v1'],
+          ['SWE-ABS', 'https://github.com/OpenAgentEval/SWE-ABS']
         ]
       },
       'spec-enrichment': {
         maturity: 'Experiment now',
         title: 'Spec to test enrichment',
-        summary: 'QA reasoning is moving earlier in the lifecycle. Agents and test architects can enrich requirements, expose ambiguity, derive acceptance constraints, and turn business intent into more machine verifiable specifications before implementation starts.',
+        summary: 'QA reasoning is moving earlier in the lifecycle. Agents and test architects can expose ambiguity, derive acceptance constraints, and turn business intent into more machine verifiable specifications before implementation starts.',
         why: 'Agent quality is bounded by input quality. Teams with vague requirements and undocumented rules will get less reliable autonomous development than teams that deliberately improve specification quality.',
         references: [
           ['Agentic SDLC with a QA engineering mindset', 'https://stackoverflow.blog/2026/08/18/building-an-agentic-sdlc-with-a-qa-engineering-mindset/']
@@ -239,11 +225,11 @@
       adversarial: {
         maturity: 'Experiment now',
         title: 'Adversarial test validation',
-        summary: 'Generated tests can pass while still being weak. Mutation testing, adversarial examples, alternate implementations, and independent test generation are emerging as ways to verify that a test suite can actually distinguish correct behavior from plausible mistakes.',
-        why: 'This addresses a core AI testing bias: code and tests can agree with each other while both being wrong. Strong validation asks whether the tests would fail against believable incorrect implementations.',
+        summary: 'Generated tests can pass while still being weak. Mutation testing, adversarial examples, alternate implementations, and independent test generation are emerging as ways to verify that a suite can distinguish correct behavior from plausible mistakes.',
+        why: 'This addresses a core AI testing bias: code and tests can agree with each other while both are wrong. Strong validation asks whether the tests would fail against believable incorrect implementations.',
         references: [
           ['SWE-ABS repository', 'https://github.com/OpenAgentEval/SWE-ABS'],
-          ['SWE-ABS paper', 'https://arxiv.org/abs/2603.00520']
+          ['SWE Refactor Bench', 'https://github.com/Einsia/SWE-Refactor-Bench']
         ]
       },
       'mcp-qa': {
@@ -252,8 +238,8 @@
         summary: 'MCP servers are becoming APIs for agents. As adoption grows, they need the same engineering discipline applied to other integration surfaces: contracts, compatibility checks, access control, observability, and regression testing.',
         why: 'A broken or over privileged MCP tool can make an otherwise capable agent unreliable or unsafe. This creates a new testing and governance surface that many teams have not yet incorporated into their QA strategy.',
         references: [
-          ['MCP Inspector repository', 'https://github.com/modelcontextprotocol/inspector'],
-          ['GitHub Agentic Workflows MCP guide', 'https://github.github.com/gh-aw/guides/mcps/']
+          ['MCP Inspector', 'https://github.com/modelcontextprotocol/inspector'],
+          ['test-mcp', 'https://github.com/loadmill/test-mcp']
         ]
       },
       'multi-agent': {
@@ -262,8 +248,8 @@
         summary: 'Multiple coding agents can provide useful drafting, critique, specialization, and escalation, but simply adding more agents does not reliably improve outcomes. Coordination, isolation, and explicit acceptance rules matter more than agent count.',
         why: 'This is promising for complex work, but architecture and orchestration are still evolving quickly. It is better treated as a controlled experiment than a default delivery model today.',
         references: [
-          ['GitHub inline sub-agents', 'https://github.github.com/gh-aw/reference/inline-sub-agents/'],
-          ['GitHub project coordination workflows', 'https://github.github.com/gh-aw/blog/2026-01-13-meet-the-workflows-campaigns/']
+          ['AgentRoom paper', 'https://arxiv.org/abs/2608.23740'],
+          ['Project HydraFusion', 'https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/']
         ]
       }
     };
@@ -284,82 +270,97 @@
       },
       qa: {
         title: 'QA and testing',
-        summary: 'QA is moving both earlier and wider: requirements quality, independent verification, adversarial testing, and autonomous investigation are becoming as important as downstream scripted regression.',
+        summary: 'QA is moving from downstream verification toward specification quality, evidence design, independent validation, and control of autonomous workflows.',
         points: [
-          'Treat specification quality as part of test architecture.',
-          'Do not accept AI generated tests solely because they pass or increase coverage.',
-          'Use mutation, alternate implementations, and independent checks to challenge test quality.'
+          'Generated tests need quality gates beyond pass rate and coverage.',
+          'Specification enrichment is becoming a meaningful pre implementation QA activity.',
+          'Narrow autonomous agents for consistency, test gaps, and failure investigation look more practical than broad autonomous QA.'
         ],
         references: [
-          ['QA engineering mindset for agentic SDLC', 'https://stackoverflow.blog/2026/08/18/building-an-agentic-sdlc-with-a-qa-engineering-mindset/'],
-          ['SWE-ABS', 'https://github.com/OpenAgentEval/SWE-ABS']
+          ['SWE-Gate', 'https://arxiv.org/html/2609.04167v1'],
+          ['Active-SWE', 'https://arxiv.org/abs/2608.04682']
         ]
       },
       evaluation: {
         title: 'Evaluation and governance',
-        summary: 'The central problem is trust. Functional success is necessary but increasingly insufficient for accepting agent generated engineering work.',
+        summary: 'The central problem is trust. Teams need objective evidence that agent generated work is correct, acceptable, auditable, and produced within bounded authority.',
         points: [
-          'Add acceptance constraints beyond functional tests.',
-          'Evaluate the agent trajectory and evidence, not only the final patch.',
-          'Put a policy boundary between proposed actions and privileged execution.'
+          'Evaluate trajectories and constraints, not only final pass or fail outcomes.',
+          'Keep independent verification separate from the implementation context where practical.',
+          'Treat permissions, runtime isolation, and human acceptance authority as architecture.'
         ],
         references: [
-          ['SWE-Gate', 'https://arxiv.org/abs/2609.04167'],
+          ['AgentJudgeBench', 'https://arxiv.org/abs/2608.26623'],
           ['GitHub Safe Outputs', 'https://github.github.com/gh-aw/reference/safe-outputs/']
         ]
       },
       coding: {
         title: 'Coding agents',
-        summary: 'Coding agents are most useful when the surrounding engineering system gives them good context, compact tools, bounded authority, and strong feedback loops.',
+        summary: 'Coding agents are already useful, but their effectiveness depends heavily on the surrounding harness, context, tool interfaces, recovery model, and verification architecture.',
         points: [
-          'Optimize the workflow and context, not only the model choice.',
-          'Prefer compact deterministic interfaces when they reduce context cost and ambiguity.',
-          'Use specialized sub-agents deliberately rather than multiplying agents without coordination.'
+          'Model choice matters less when the workflow lacks good context or validation.',
+          'Compact CLI and skill interfaces can outperform larger tool surfaces for focused code work.',
+          'Confidence based routing and bounded execution are becoming practical control mechanisms.'
         ],
         references: [
-          ['Playwright CLI for coding agents', 'https://github.com/microsoft/playwright-cli'],
-          ['GitHub inline sub-agents', 'https://github.github.com/gh-aw/reference/inline-sub-agents/']
+          ['Prime Agent', 'https://github.com/PrimeIntellect-ai/prime-agent'],
+          ['Speculative Uncertainty', 'https://arxiv.org/abs/2609.05274']
         ]
       },
       mcp: {
         title: 'MCP and tooling',
-        summary: 'MCP is becoming an important integration layer for agents, which makes it an API, security, observability, and compatibility concern for QA teams as well.',
+        summary: 'MCP is becoming a real integration layer for agent workflows, which also makes it a first class QA, security, and observability surface.',
         points: [
-          'Test MCP contracts and permissions like any other integration surface.',
-          'Use MCP where persistent rich interaction is useful, not automatically for every tool.',
-          'Add CI level inspection and regression checks for important agent tools.'
+          'Test MCP servers independently from the model that consumes them.',
+          'Use MCP when richer persistent interaction is valuable, not simply because it is available.',
+          'Treat tool contracts, access scopes, and traces as part of the quality architecture.'
         ],
         references: [
           ['MCP Inspector', 'https://github.com/modelcontextprotocol/inspector'],
-          ['GitHub MCP guide', 'https://github.github.com/gh-aw/guides/mcps/']
+          ['test-mcp', 'https://github.com/loadmill/test-mcp']
         ]
+      },
+      consulting: {
+        title: 'Top consulting questions',
+        summary: 'These questions increasingly distinguish a basic AI adoption review from a useful agentic SDLC assessment.',
+        points: [
+          'Are requirements explicit enough for agents to act on safely?',
+          'Can generated code and generated tests be independently validated?',
+          'Does CI expose enough evidence for agent investigation and diagnosis?',
+          'Are agent permissions separated from privileged execution?',
+          'Where can narrow agent workflows reduce maintenance or improve discovery quality?',
+          'Can the team measure agent quality beyond a green pipeline?',
+          'Are autonomy thresholds, run limits, and human escalation paths explicit?',
+          'Can the organization reconstruct why an agent made a change from traces and artifacts?'
+        ],
+        references: []
       }
     };
 
-    const detailTitle = document.getElementById('detail-title');
+    const radarItems = Array.from(document.querySelectorAll('.radar-item'));
     const detailMaturity = document.getElementById('detail-maturity');
+    const detailTitle = document.getElementById('detail-title');
     const detailSummary = document.getElementById('detail-summary');
     const detailWhy = document.getElementById('detail-why');
     const detailReferences = document.getElementById('detail-references');
-    const radarItems = Array.from(document.querySelectorAll('.radar-item'));
 
-    function renderLinks(container, references) {
-      container.replaceChildren();
-      references.forEach(([label, url]) => {
-        const link = document.createElement('a');
-        link.href = url;
-        link.target = '_blank';
-        link.rel = 'noopener';
-        link.textContent = label;
-        container.appendChild(link);
+    function renderLinks(container, links) {
+      container.textContent = '';
+      links.forEach(([label, url]) => {
+        const anchor = document.createElement('a');
+        anchor.href = url;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener';
+        anchor.textContent = label;
+        container.appendChild(anchor);
       });
     }
 
-    function selectRadar(element) {
-      const data = radarData[element.dataset.key];
+    function selectRadarItem(item) {
+      const data = radarData[item.dataset.key];
       if (!data) return;
-      radarItems.forEach(item => item.classList.remove('selected'));
-      element.classList.add('selected');
+      radarItems.forEach(node => node.classList.remove('selected'));
+      item.classList.add('selected');
       detailMaturity.textContent = data.maturity;
       detailTitle.textContent = data.title;
       detailSummary.textContent = data.summary;
@@ -368,41 +369,43 @@
     }
 
     radarItems.forEach(item => {
-      item.addEventListener('click', () => selectRadar(item));
+      item.addEventListener('click', () => selectRadarItem(item));
       item.addEventListener('keydown', event => {
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
-          selectRadar(item);
+          selectRadarItem(item);
         }
       });
     });
 
+    const topicButtons = Array.from(document.querySelectorAll('.topic-option'));
     const topicTitle = document.getElementById('topic-title');
     const topicSummary = document.getElementById('topic-summary');
     const topicPoints = document.getElementById('topic-points');
     const topicReferences = document.getElementById('topic-references');
-    const topicOptions = Array.from(document.querySelectorAll('.topic-option'));
 
     function selectTopic(button) {
       const data = topicData[button.dataset.topic];
       if (!data) return;
-      topicOptions.forEach(option => {
-        const selected = option === button;
-        option.classList.toggle('selected', selected);
-        option.setAttribute('aria-selected', String(selected));
+      topicButtons.forEach(node => {
+        node.classList.remove('selected');
+        node.setAttribute('aria-selected', 'false');
       });
+      button.classList.add('selected');
+      button.setAttribute('aria-selected', 'true');
       topicTitle.textContent = data.title;
       topicSummary.textContent = data.summary;
-      topicPoints.replaceChildren();
+      topicPoints.textContent = '';
       data.points.forEach(point => {
         const li = document.createElement('li');
         li.textContent = point;
         topicPoints.appendChild(li);
       });
       renderLinks(topicReferences, data.references);
+      topicReferences.hidden = data.references.length === 0;
     }
 
-    topicOptions.forEach(button => button.addEventListener('click', () => selectTopic(button)));
+    topicButtons.forEach(button => button.addEventListener('click', () => selectTopic(button)));
   })();
   </script>
 </body>
