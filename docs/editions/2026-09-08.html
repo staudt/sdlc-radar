@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI SDLC Radar | 2026-09-08</title>
+  <link rel="stylesheet" href="../assets/style.css?v=20260908-5">
+</head>
+<body>
+  <main class="wrap edition-page">
+    <nav class="edition-nav"><a href="../index.html#editions">← Back to dashboard</a></nav>
+    <article class="edition-article">
+      <p class="edition-date">September 8, 2026</p>
+      <h1>AI SDLC Radar</h1>
+      <div class="edition-body">
+        <p>Today’s edition is deliberately narrow. The strongest signal is not another coding model release, but a shift in how agentic software delivery is being verified, gated, and judged.</p>
+
+        <h2>Main signal</h2>
+        <p><strong>AI SDLC quality gates are moving beyond “does it pass the tests?” toward explicit acceptance constraints, confidence gating, and independent validation.</strong> For QA and test architecture, this is important because agent productivity is increasingly easy to demonstrate. Agent reliability is becoming the harder problem.</p>
+
+        <h2>1. SWE-Gate shows why passing tests is not enough</h2>
+        <p><strong>Experiment now</strong></p>
+        <p><strong>What changed:</strong> A new repository level benchmark called <a href="https://arxiv.org/html/2609.04167v1" target="_blank" rel="noopener">SWE-Gate</a> evaluates coding agent patches against both functional tests and executable constraints derived from real pull request review comments.</p>
+        <p><strong>Why it matters:</strong> Across 303 repair instances from 75 Python repositories, the researchers found that 221 of 644 repairs that passed the functional suite still violated review constraints. Those constraints include backward compatibility, established exception semantics, and repository specific implementation expectations.</p>
+        <p>This quantifies something experienced reviewers already know: a green test suite is only one dimension of acceptability. Agent generated changes need gates for architectural intent, compatibility, policy, and maintainability as well.</p>
+        <p><strong>Maturity:</strong> Research benchmark with a public replication package and deterministic functional and constraint tests. Strong enough to influence internal agent evaluation design, but not a drop in production framework.</p>
+
+        <h2>2. ARIA pushes agentic testing onto real hardware</h2>
+        <p><strong>Watch closely</strong></p>
+        <p><strong>What changed:</strong> <a href="https://arxiv.org/abs/2609.04913" target="_blank" rel="noopener">ARIA</a> is a multi agent testing framework for Android based automotive infotainment systems. Starting from a short scenario containing a path, action, and expected outcome, four specialized agents cooperate on perception, planning, interaction, and validation, then produce reports, reproducible scripts, and visual evidence.</p>
+        <p><strong>Results:</strong> On a manufacturer’s physical infotainment system, ARIA completed 28 of 30 scenarios. Twenty of those 28 verdicts matched ground truth. It detected all five known defects, but also produced eight false positives, largely because navigation failures and unsupported gestures were sometimes interpreted as product failures.</p>
+        <p><strong>Why it matters:</strong> This is a useful preview of where autonomous UI testing may go beyond browser automation. The interesting architecture is the separation of responsibilities across agents and the use of visual evidence. The false positive rate is equally important: autonomous test execution can create substantial triage cost if uncertainty and navigation failure are not modeled separately from application failure.</p>
+        <p><strong>Maturity:</strong> Early research prototype tested on real hardware. Promising architecture, but the false positive economics are not production ready yet.</p>
+
+        <h2>3. Coding agents are getting a pre execution quality gate</h2>
+        <p><strong>Experiment now</strong></p>
+        <p><strong>What changed:</strong> A new method called <a href="https://arxiv.org/abs/2609.05274" target="_blank" rel="noopener">Speculative Uncertainty</a> estimates whether a coding agent is likely to fail before its proposed actions are executed. A smaller draft model scores the already generated reasoning and action trajectory, producing a failure likelihood signal without access to the primary model’s logits, weights, or repeated samples.</p>
+        <p><strong>Results:</strong> Used as a veto gate with Qwen3-Coder-480B and Claude 3.5 Sonnet, the approach reduced execution errors by 6 to 8 percentage points and token cost by 14 to 19 percent in the reported experiments.</p>
+        <p><strong>Why it matters:</strong> This suggests a useful architecture for production coding agents: do not treat every generated action as equally trustworthy. A lightweight verifier can decide whether to proceed, allocate more reasoning, route to a stronger model, request human review, or reject the action entirely.</p>
+        <p>For agentic CI and autonomous maintenance, this resembles a risk based quality gate applied before tool execution rather than after a failed build.</p>
+
+        <h2>Consulting angle</h2>
+        <ul>
+          <li><strong>What counts as acceptable beyond passing tests?</strong> Architecture, compatibility, review rules, security policy, and repository conventions should be machine checkable where possible.</li>
+          <li><strong>Who verifies the verifier?</strong> Agent generated code and agent generated tests should not share a single unchecked reasoning loop.</li>
+          <li><strong>How are uncertainty and tool failures classified?</strong> A navigation failure, missing context, or inability to execute should not automatically become a product defect.</li>
+          <li><strong>Can risky actions be gated before execution?</strong> Confidence based routing, vetoes, and human escalation are emerging as practical controls for agentic workflows.</li>
+        </ul>
+        <p>The likely client expectation is moving from “show us that AI can write code or tests” to “show us that the workflow can produce changes that are reliably acceptable, auditable, and safe to merge.”</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
