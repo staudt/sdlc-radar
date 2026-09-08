@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "date": "2026-09-08",
+  "label": "Sep 8, 2026",
+  "source": "native",
+  "mainSignal": {
+    "title": "AI native SDLC is becoming a governed workflow, not a single model.",
+    "body": "The strongest implementations separate agent reasoning, deterministic execution, independent verification, and privileged approval. QA is increasingly the control layer that makes that autonomy trustworthy."
+  },
+  "currentPicture": [
+    {
+      "title": "Testing is becoming a control system.",
+      "body": "Pass rate alone is no longer enough."
+    },
+    {
+      "title": "QA is moving earlier.",
+      "body": "Specification quality increasingly determines agent quality."
+    },
+    {
+      "title": "Narrow agents are winning first.",
+      "body": "Focused investigation and consistency checks are proving more useful than broad autonomy claims."
+    },
+    {
+      "title": "Permissions are architecture.",
+      "body": "Reasoning and privileged execution increasingly need separate trust boundaries."
+    }
+  ],
+  "themeTags": [
+    "governed agent workflows",
+    "independent verification",
+    "QA upstream",
+    "bounded autonomy",
+    "permission separation"
+  ],
+  "radar": [
+    {
+      "id": "playwright",
+      "title": "Playwright CLI for agents",
+      "sector": "engineering-flow",
+      "maturity": "production",
+      "x": 335,
+      "y": 245,
+      "summary": "Browser automation is becoming a native capability for coding and testing agents. Playwright CLI gives agents a compact, deterministic interface for inspection, test generation, execution, diagnosis, and repair without forcing every interaction through a large MCP tool surface.",
+      "why": "This is a practical bridge between coding agents and mature browser automation. It also reinforces a broader pattern: use deterministic tools underneath the agent and reserve model reasoning for interpretation and decision making.",
+      "references": [
+        ["Playwright CLI repository", "https://github.com/microsoft/playwright-cli"],
+        ["Playwright agent CLI docs", "https://playwright.dev/agent-cli/installation"]
+      ]
+    },
+    {
+      "id": "policy-ci",
+      "title": "Policy separated CI agents",
+      "sector": "governance",
+      "maturity": "production",
+      "x": 405,
+      "y": 270,
+      "summary": "The strongest agentic CI pattern separates read and reasoning privileges from write and execution privileges. Agents investigate, propose, and explain while a controlled deterministic layer validates and performs privileged actions.",
+      "why": "This reduces the blast radius of autonomous tooling and gives enterprises a clearer audit boundary. It is increasingly relevant to CI modernization, security review, and AI readiness assessments.",
+      "references": [
+        ["GitHub Safe Outputs", "https://github.github.com/gh-aw/reference/safe-outputs/"],
+        ["Safe Outputs specification", "https://github.github.com/gh-aw/specs/safe-outputs-specification/"]
+      ]
+    },
+    {
+      "id": "quality-gates",
+      "title": "Independent agent quality gates",
+      "sector": "governance",
+      "maturity": "experiment",
+      "x": 493,
+      "y": 368,
+      "summary": "A green test run is no longer enough evidence for agent generated work. Newer approaches add independent graders, review constraint checks, trajectory review, mutation style validation, and other forms of second order verification.",
+      "why": "The same agent that wrote code or tests can share the same blind spots. Independent evaluation creates a more credible acceptance layer and is becoming one of the most important QA architecture questions for AI driven teams.",
+      "references": [
+        ["SWE-Gate", "https://arxiv.org/html/2609.04167v1"],
+        ["SWE-ABS", "https://github.com/OpenAgentEval/SWE-ABS"]
+      ]
+    },
+    {
+      "id": "spec-enrichment",
+      "title": "Spec to test enrichment",
+      "sector": "qa-testing",
+      "maturity": "experiment",
+      "x": 288,
+      "y": 456,
+      "summary": "QA reasoning is moving earlier in the lifecycle. Agents and test architects can expose ambiguity, derive acceptance constraints, and turn business intent into more machine verifiable specifications before implementation starts.",
+      "why": "Agent quality is bounded by input quality. Teams with vague requirements and undocumented rules will get less reliable autonomous development than teams that deliberately improve specification quality.",
+      "references": [
+        ["Agentic SDLC with a QA engineering mindset", "https://stackoverflow.blog/2026/08/18/building-an-agentic-sdlc-with-a-qa-engineering-mindset/"]
+      ]
+    },
+    {
+      "id": "adversarial",
+      "title": "Adversarial test validation",
+      "sector": "qa-testing",
+      "maturity": "experiment",
+      "x": 406,
+      "y": 486,
+      "summary": "Generated tests can pass while still being weak. Mutation testing, adversarial examples, alternate implementations, and independent test generation are emerging as ways to verify that a suite can distinguish correct behavior from plausible mistakes.",
+      "why": "This addresses a core AI testing bias: code and tests can agree with each other while both are wrong. Strong validation asks whether the tests would fail against believable incorrect implementations.",
+      "references": [
+        ["SWE-ABS repository", "https://github.com/OpenAgentEval/SWE-ABS"],
+        ["SWE Refactor Bench", "https://github.com/Einsia/SWE-Refactor-Bench"]
+      ]
+    },
+    {
+      "id": "mcp-qa",
+      "title": "MCP as a QA surface",
+      "sector": "tooling",
+      "maturity": "watch",
+      "x": 150,
+      "y": 410,
+      "summary": "MCP servers are becoming APIs for agents. As adoption grows, they need the same engineering discipline applied to other integration surfaces: contracts, compatibility checks, access control, observability, and regression testing.",
+      "why": "A broken or over privileged MCP tool can make an otherwise capable agent unreliable or unsafe. This creates a new testing and governance surface that many teams have not yet incorporated into their QA strategy.",
+      "references": [
+        ["MCP Inspector", "https://github.com/modelcontextprotocol/inspector"],
+        ["test-mcp", "https://github.com/loadmill/test-mcp"]
+      ]
+    },
+    {
+      "id": "multi-agent",
+      "title": "Multi agent coding workflows",
+      "sector": "engineering-flow",
+      "maturity": "watch",
+      "x": 185,
+      "y": 175,
+      "summary": "Multiple coding agents can provide useful drafting, critique, specialization, and escalation, but simply adding more agents does not reliably improve outcomes. Coordination, isolation, and explicit acceptance rules matter more than agent count.",
+      "why": "This is promising for complex work, but architecture and orchestration are still evolving quickly. It is better treated as a controlled experiment than a default delivery model today.",
+      "references": [
+        ["AgentRoom paper", "https://arxiv.org/abs/2608.23740"],
+        ["Project HydraFusion", "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/"]
+      ]
+    }
+  ]
+}
