@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDLC Radar</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">SDLC Radar</p>
+      <h1>Current state of AI software development, QA, and test automation</h1>
+      <p class="lede">A living dashboard built from daily radar editions. It tracks where the market is actually moving, what is ready for use now, what deserves experimentation, and what still needs proof.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="editions/">Browse editions</a>
+        <a class="button" href="about.html">About this project</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="grid four-up stat-grid">
+      <article class="card stat"><h2>Production now</h2><p class="big">4</p><p>Patterns with enough repeated signal to recommend confidently in consulting assessments.</p></article>
+      <article class="card stat"><h2>Experiment now</h2><p class="big">7</p><p>Important near term capabilities where the value is high but implementation quality still varies.</p></article>
+      <article class="card stat"><h2>Watch closely</h2><p class="big">5</p><p>Promising approaches that are real, but not mature enough to recommend broadly.</p></article>
+      <article class="card stat accent"><h2>Main signal</h2><p>AI native SDLC is becoming less about single models and more about <strong>governed agent workflows with independent quality gates</strong>.</p></article>
+    </section>
+
+    <section class="dashboard-layout">
+      <article class="card radar-card">
+        <div class="section-head"><h2>Radar view</h2><p>Signals grouped by current maturity and business importance.</p></div>
+        <svg class="radar" viewBox="0 0 620 620" role="img" aria-label="Technology radar for AI SDLC and QA">
+          <circle cx="310" cy="310" r="250" class="ring"></circle>
+          <circle cx="310" cy="310" r="185" class="ring"></circle>
+          <circle cx="310" cy="310" r="120" class="ring"></circle>
+          <circle cx="310" cy="310" r="60" class="ring"></circle>
+          <line x1="310" y1="60" x2="310" y2="560" class="axis"></line>
+          <line x1="60" y1="310" x2="560" y2="310" class="axis"></line>
+          <text x="310" y="30" text-anchor="middle" class="quad">Engineering flow</text>
+          <text x="587" y="315" text-anchor="end" class="quad">Governance</text>
+          <text x="310" y="600" text-anchor="middle" class="quad">QA and testing</text>
+          <text x="30" y="315" class="quad">Tooling</text>
+          <g><circle cx="300" cy="110" r="10" class="dot production"></circle><text x="318" y="114" class="label">Playwright CLI for agents</text></g>
+          <g><circle cx="430" cy="195" r="10" class="dot production"></circle><text x="448" y="199" class="label">Policy separated CI agents</text></g>
+          <g><circle cx="420" cy="375" r="10" class="dot experiment"></circle><text x="438" y="379" class="label">Independent agent quality gates</text></g>
+          <g><circle cx="268" cy="455" r="10" class="dot experiment"></circle><text x="286" y="459" class="label">Spec to test enrichment</text></g>
+          <g><circle cx="180" cy="395" r="10" class="dot watch"></circle><text x="50" y="399" class="label">MCP as a QA surface</text></g>
+          <g><circle cx="180" cy="215" r="10" class="dot watch"></circle><text x="40" y="219" class="label">Multi agent coding rooms</text></g>
+          <g><circle cx="325" cy="535" r="10" class="dot experiment"></circle><text x="343" y="539" class="label">Adversarial test validation</text></g>
+        </svg>
+        <div class="legend"><span><i class="swatch production"></i> Production now</span><span><i class="swatch experiment"></i> Experiment now</span><span><i class="swatch watch"></i> Watch closely</span></div>
+      </article>
+
+      <aside class="stack">
+        <article class="card">
+          <div class="section-head"><h2>Current picture</h2><p>The market signals that keep repeating across recent editions.</p></div>
+          <ul class="signal-list">
+            <li><strong>Testing is becoming a control system</strong><br>Pass rate alone is no longer enough. Stronger setups add independent validation, trajectory review, mutation style checks, and policy gates.</li>
+            <li><strong>Agent workflows matter more than single models</strong><br>Separation between reasoning, execution, and approval is becoming a core architectural pattern.</li>
+            <li><strong>QA is moving earlier</strong><br>Specification enrichment and requirements formalization are becoming higher value than only downstream automation.</li>
+            <li><strong>Narrow autonomous agents are winning first</strong><br>Consistency checking, CI investigation, and focused review agents look more practical than broad autonomous QA claims.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="section-head"><h2>Top consulting questions</h2><p>High value prompts for discovery and assessment work.</p></div>
+          <ol class="question-list">
+            <li>Are requirements explicit enough for agents to act on safely?</li>
+            <li>Can generated code and generated tests be independently validated?</li>
+            <li>Does CI expose useful evidence for agent investigation?</li>
+            <li>Are agent permissions separated from privileged execution?</li>
+            <li>Where can narrow agent workflows reduce test maintenance or increase discovery quality?</li>
+          </ol>
+        </article>
+      </aside>
+    </section>
+
+    <section class="grid three-up">
+      <article class="card topic-card"><h2>Agentic SDLC</h2><p>Patterns for orchestrating design, implementation, validation, and approval with agents in the loop.</p><a href="topics/agentic-sdlc.html">Open deep dive</a></article>
+      <article class="card topic-card"><h2>QA and testing</h2><p>How modern QA is shifting toward specification quality, validation architecture, and bounded autonomous investigation.</p><a href="topics/qa-and-testing.html">Open deep dive</a></article>
+      <article class="card topic-card"><h2>Evaluation and governance</h2><p>Emerging quality gates, trust boundaries, MCP concerns, and the move beyond green pipelines.</p><a href="topics/evaluation-and-governance.html">Open deep dive</a></article>
+    </section>
+  </main>
+</body>
+</html>
