@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI SDLC Radar | 2026-09-11</title>
+  <link rel="stylesheet" href="../assets/style.css?v=20260911-1">
+</head>
+<body>
+  <main class="wrap edition-page">
+    <nav class="edition-nav"><a href="../index.html#editions">← Back to dashboard</a></nav>
+    <article class="edition-article">
+      <p class="edition-date">September 11, 2026</p>
+      <h1>AI SDLC Radar</h1>
+      <div class="edition-body">
+        <p>Today’s strongest evidence is not another broad autonomy claim. It is a production pattern showing how useful software agents are being constrained by deterministic analysis and explicit verification.</p>
+
+        <h2>Main signal</h2>
+        <p><strong>The strongest production agent workflows are becoming staged systems: deterministic analysis narrows the work, the agent reasons inside a bounded problem, and independent checks validate the result before anything is proposed or changed.</strong></p>
+
+        <h2>1. GitHub PureLock turns coverage gaps into bounded agent work</h2>
+        <p><strong>Experiment now</strong></p>
+        <p><strong>What changed:</strong> GitHub highlighted <a href="https://github.github.com/gh-aw/blog/2026-09-09-agent-of-the-day/" target="_blank" rel="noopener">PureLock</a>, a daily workflow that improves test coverage for small deterministic Go functions. Before the AI agent starts, a deterministic precompute step merges coverage profiles, type checks the code, performs fixed point side effect analysis, and ranks low coverage pure functions.</p>
+        <p>The orchestrator selects at most three candidates that have not been touched recently, then fans them out to parallel test writing agents. Each agent rechecks purity, writes table driven tests, and reports coverage deltas. The final output is revalidated with <code>gofmt</code>, <code>go vet</code>, <code>go test -race</code>, and coverage evidence before it can become a draft pull request.</p>
+        <p><strong>Why it matters:</strong> This is a much stronger pattern than telling a coding agent to improve test coverage. Deterministic systems decide where agent reasoning is useful, the agent works inside a small scope, and normal engineering tools remain the acceptance authority.</p>
+        <p><strong>SDLC fit:</strong> test debt reduction, coverage improvement, low risk maintenance, and continuous quality engineering.</p>
+
+        <h2>2. Package Specification Librarian turns documentation drift into a measurable audit</h2>
+        <p><strong>Watch closely</strong></p>
+        <p><strong>What changed:</strong> On September 10, GitHub highlighted its <a href="https://github.github.com/gh-aw/blog/2026-09-10-agent-of-the-day/" target="_blank" rel="noopener">Package Specification Librarian</a>. The workflow compares every package README against actual exported Go symbols and evaluates documentation across completeness, accuracy, consistency, and freshness.</p>
+        <p>Its September 10 run audited 37 packages, reported 97% specification coverage, found five actionable issues, and explicitly ruled out several false positives caused by naive symbol matching. That verification step matters because a documentation agent that simply reports every textual mismatch would quickly become noise.</p>
+        <p><strong>Why it matters:</strong> Agentic maintenance is becoming measurable. The useful output is not simply that an agent reviewed the docs, but a scored, reproducible audit with traceable findings and a concrete action list.</p>
+        <p><strong>SDLC fit:</strong> documentation drift, API and package consistency, architecture governance, maintainability, and continuous repository hygiene.</p>
+
+        <h2>Emerging pattern</h2>
+        <ul>
+          <li>Deterministic preprocessing is becoming a practical way to reduce agent search cost and ambiguity.</li>
+          <li>Agents are most credible when conventional tools remain the source of truth for acceptance.</li>
+          <li>Small recurring maintenance loops are producing more convincing production evidence than broad autonomous engineering claims.</li>
+          <li>Quality signals increasingly need measurable evidence, not just model generated explanations.</li>
+        </ul>
+
+        <h2>Consulting angle</h2>
+        <p>For project assessments, inspect the architecture around the agent rather than focusing only on the model. Ask how candidate work is discovered, what can be decided deterministically first, how output is independently validated, what the action limits are, and whether every proposed change has an auditable evidence trail.</p>
+        <p>These developments reinforce the existing current state Radar, especially the themes that narrow agents are winning first and that QA is becoming a control layer. They do not yet justify a new market state checkpoint.</p>
+
+        <p><strong>Primary sources:</strong> <a href="https://github.github.com/gh-aw/blog/2026-09-09-agent-of-the-day/" target="_blank" rel="noopener">PureLock</a> · <a href="https://github.github.com/gh-aw/blog/2026-09-10-agent-of-the-day/" target="_blank" rel="noopener">Package Specification Librarian</a> · <a href="https://github.github.com/gh-aw/introduction/how-they-work/" target="_blank" rel="noopener">How Agentic Workflows Work</a></p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
