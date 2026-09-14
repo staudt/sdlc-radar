@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI SDLC Radar | 2026-09-14</title>
+  <link rel="stylesheet" href="../assets/style.css?v=20260914-1">
+</head>
+<body>
+  <main class="wrap edition-page">
+    <nav class="edition-nav"><a href="../index.html#editions">← Back to dashboard</a></nav>
+    <article class="edition-article">
+      <p class="edition-date">September 14, 2026</p>
+      <h1>AI SDLC Radar</h1>
+      <div class="edition-body">
+        <p>The weekend produced a narrow but useful signal. The strongest new evidence is not about broader autonomy. It is about agents becoming easier to trust because their workflows explicitly support stopping without a change and route privileged writes through controlled interfaces.</p>
+
+        <h2>Main signal</h2>
+        <p><strong>The useful unit of autonomy is becoming an operational loop with explicit stop conditions and mediated writes.</strong> A credible maintenance agent should be able to decide that no change is warranted, and when a change is warranted, privileged mutations should pass through a constrained, auditable control layer rather than happen directly from the reasoning process.</p>
+
+        <h2>1. GitHub jsweep makes “no change” a successful outcome</h2>
+        <p><strong>Experiment now</strong></p>
+        <p><strong>What changed:</strong> GitHub highlighted <a href="https://github.github.com/gh-aw/blog/2026-09-11-agent-of-the-day/" target="_blank" rel="noopener">jsweep, the JavaScript Unbloater</a>, a daily maintenance agent that cleans exactly one CommonJS helper at a time. Before reading the full candidate, it dispatches a small triage sub-agent that inspects only the first 80 lines and decides whether the file is actually worth changing.</p>
+        <p>If triage returns <code>noop</code>, jsweep stops. Its September 11 run completed successfully without opening a pull request because no useful change was justified. When it does act, output is kept small, draft by default, tagged for review, and configured with <code>if-no-changes: ignore</code>.</p>
+        <p><strong>Why it matters:</strong> This is an important operational property for continuous agents. Systems that feel obligated to produce a patch on every run create review fatigue and eventually train teams to ignore them. Explicit abstention is a quality feature, not a failure mode.</p>
+        <p><strong>SDLC fit:</strong> low-risk refactoring, type-safety debt, lint cleanup, repetitive maintenance, and scheduled repository hygiene.</p>
+
+        <h2>2. gh-aw routes release-note mutations through a safe output</h2>
+        <p><strong>Watch closely</strong></p>
+        <p><strong>What changed:</strong> GitHub published the <a href="https://github.com/github/gh-aw/releases/tag/v0.89.13" target="_blank" rel="noopener">gh-aw v0.89.13 prerelease</a> on September 14. The release requires agentic workflows that modify release notes to use the <code>update-release</code> safe output instead of direct GitHub mutations. The stated goal is to keep agent jobs read-only and close off a class of unintended writes.</p>
+        <p>The same release also adds wildcard support for cached logs, allowing teams to merge matching JSONL log shards while pruning out-of-range files and writing fresh collision-resistant results. That is a smaller feature, but it points in the same direction: production agent systems need operational telemetry that can be inspected and retained independently of the agent’s immediate task.</p>
+        <p><strong>Why it matters:</strong> Permission separation is becoming concrete platform behavior rather than an architecture diagram. Reasoning can remain flexible while privileged changes are forced through a narrow, policy-aware mutation path.</p>
+        <p><strong>Maturity:</strong> This is a prerelease, so the specific interface should still be treated as evolving. The underlying pattern is already production-relevant.</p>
+        <p><strong>SDLC fit:</strong> CI/CD governance, release automation, agent permissions, auditability, and repository operations.</p>
+
+        <h2>Emerging pattern</h2>
+        <ul>
+          <li>Abstention is becoming a first-class agent behavior. A healthy scheduled agent may legitimately produce nothing.</li>
+          <li>Small triage steps can prevent expensive context loading and unnecessary edits.</li>
+          <li>Privileged writes increasingly belong behind explicit safe-output or approval boundaries.</li>
+          <li>Operational logs are part of the quality architecture, not merely debugging leftovers.</li>
+        </ul>
+
+        <h2>Consulting angle</h2>
+        <p>For client assessments, add two questions to the agent-readiness checklist. First, can an agent explicitly decline to act without being judged as unsuccessful? Second, are write, merge, release, deployment, and other privileged operations mediated by constrained interfaces that are independently auditable?</p>
+        <p>These developments reinforce two existing Radar conclusions, that narrow agents are winning first and permissions are architecture. They strengthen the evidence behind the maintained board but do not materially change its current state, so no new state-history checkpoint is warranted today.</p>
+
+        <p><strong>Primary sources:</strong> <a href="https://github.github.com/gh-aw/blog/2026-09-11-agent-of-the-day/" target="_blank" rel="noopener">GitHub Agentic Workflows: jsweep</a> · <a href="https://github.com/github/gh-aw/releases/tag/v0.89.13" target="_blank" rel="noopener">gh-aw v0.89.13 release</a> · <a href="https://github.github.com/gh-aw/reference/safe-outputs/" target="_blank" rel="noopener">GitHub Safe Outputs</a></p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
