@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI SDLC Radar | 2026-09-15</title>
+  <link rel="stylesheet" href="../assets/style.css?v=20260914-1">
+</head>
+<body>
+  <main class="wrap edition-page">
+    <nav class="edition-nav"><a href="../index.html#editions">← Back to dashboard</a></nav>
+    <article class="edition-article">
+      <p class="edition-date">September 15, 2026</p>
+      <h1>AI SDLC Radar</h1>
+      <div class="edition-body">
+        <p>Today’s strongest signal comes from connecting production agent workflows with empirical testing research. Agents are already generating useful tests and fixes, but the quality boundary is moving away from the agent’s own confidence and toward independently reproducible evidence.</p>
+
+        <h2>Main signal</h2>
+        <p><strong>Agent quality is moving from self validation toward independent evidence.</strong> The increasingly credible pattern is simple: let agents reason and propose changes, but let deterministic analyzers, execution, coverage deltas, race checks, security scans, or independent graders decide whether those changes deserve acceptance.</p>
+
+        <h2>1. Independent evidence is becoming the real acceptance boundary</h2>
+        <p><strong>Experiment now</strong></p>
+        <p><strong>What changed:</strong> The evidence is now visible across multiple production workflows. <a href="https://github.blog/changelog/2026-09-09-remediate-code-quality-findings-with-agentic-autofix/" target="_blank" rel="noopener">GitHub Code Quality’s agentic autofix</a> can take up to 25 findings, let Copilot remediate them on a branch, validate the changes, and open a pull request. GitHub’s <a href="https://github.blog/changelog/2026-07-10-agentic-autofix-for-code-scanning-alerts-in-public-preview/" target="_blank" rel="noopener">code scanning agentic autofix</a> goes one step more explicitly: after generating a fix, it reruns the originating CodeQL or third party analysis and iterates until the alert is actually closed before presenting the PR.</p>
+        <p>GitHub’s <a href="https://github.github.com/gh-aw/blog/2026-09-09-agent-of-the-day/" target="_blank" rel="noopener">PureLock testing agent</a> shows the same architecture from a QA direction. Deterministic analysis identifies pure, weakly covered functions before the model receives work. Generated tests are then checked with <code>gofmt</code>, <code>go vet</code>, <code>go test -race</code>, and measured coverage deltas.</p>
+        <p><strong>Why it matters:</strong> “The agent validated its work” is not a strong acceptance criterion when the same reasoning process produced the change. Independent executable evidence is a much stronger control boundary. This is increasingly looking like the practical architecture for trustworthy agentic delivery.</p>
+        <p><strong>SDLC fit:</strong> pull request quality gates, security remediation, autonomous test generation, CI acceptance, and regulated delivery workflows.</p>
+
+        <h2>2. Agent generated tests need quality measures beyond volume and coverage</h2>
+        <p><strong>Study closely</strong></p>
+        <p><strong>What changed:</strong> An <a href="https://arxiv.org/abs/2603.13724" target="_blank" rel="noopener">empirical study of 2,232 test related commits</a> from real repositories found AI authored 16.4% of commits adding tests. AI generated tests produced coverage gains comparable to human written tests, but had distinct structural characteristics: longer methods, denser assertions, and more linear logic.</p>
+        <p>That result becomes more interesting beside separate research on autonomous software engineering agents. <a href="https://arxiv.org/abs/2602.07900" target="_blank" rel="noopener">A study across six state of the art models</a> found that resolved and unresolved SWE bench tasks had similar test writing frequencies, and controlled prompting that increased or reduced test writing did not significantly change final outcomes.</p>
+        <p><strong>Why it matters:</strong> Coverage and test count can demonstrate activity without demonstrating discriminating power. For AI generated tests, QA teams increasingly need second order measures: can the tests reject plausible wrong implementations, catch mutations, expose regressions independently of the implementation agent, and provide reproducible evidence at the acceptance gate?</p>
+        <p><strong>Maturity:</strong> The empirical evidence is still developing, so this is not a reason to distrust generated tests. It is a reason to stop treating test volume or coverage alone as proof of quality.</p>
+        <p><strong>SDLC fit:</strong> AI test generation, quality engineering metrics, acceptance architecture, test review, and autonomous coding governance.</p>
+
+        <h2>Emerging pattern</h2>
+        <ul>
+          <li>Deterministic analysis is increasingly selecting and validating agent work.</li>
+          <li>Generated tests can provide useful coverage without necessarily improving autonomous task success.</li>
+          <li>Agent acceptance needs evidence that is independent of the implementation agent where practical.</li>
+          <li>QA metrics for AI generated tests need to move beyond count, pass rate, and raw coverage.</li>
+        </ul>
+
+        <h2>Consulting angle</h2>
+        <p>For project assessments, ask whether agent generated changes are accepted on the agent’s own claims or on independently reproducible evidence. For AI generated tests, ask whether the organization measures defect detection strength, mutation or adversarial resistance, and independence from the implementation context, rather than only coverage and test volume.</p>
+        <p>Today’s evidence strengthens the existing Radar positions on independent quality gates and adversarial test validation. It does not yet justify moving their maturity or changing the maintained current state.</p>
+
+        <p><strong>Primary sources:</strong> <a href="https://github.blog/changelog/2026-09-09-remediate-code-quality-findings-with-agentic-autofix/" target="_blank" rel="noopener">GitHub Code Quality agentic autofix</a> · <a href="https://github.blog/changelog/2026-07-10-agentic-autofix-for-code-scanning-alerts-in-public-preview/" target="_blank" rel="noopener">GitHub code scanning agentic autofix</a> · <a href="https://github.github.com/gh-aw/blog/2026-09-09-agent-of-the-day/" target="_blank" rel="noopener">GitHub PureLock</a> · <a href="https://arxiv.org/abs/2603.13724" target="_blank" rel="noopener">Testing with AI Agents</a> · <a href="https://arxiv.org/abs/2602.07900" target="_blank" rel="noopener">Rethinking the Value of Agent Generated Tests</a></p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
