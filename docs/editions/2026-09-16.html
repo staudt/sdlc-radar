@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI SDLC Radar | 2026-09-16</title>
+  <link rel="stylesheet" href="../assets/style.css?v=20260909-1">
+</head>
+<body>
+  <main class="wrap edition-page">
+    <nav class="edition-nav"><a href="../index.html#editions">← Back to dashboard</a></nav>
+    <article class="edition-article">
+      <p class="edition-date">September 16, 2026</p>
+      <h1>AI SDLC Radar</h1>
+      <div class="edition-body">
+        <p>Today’s strongest new signals come from QA agents moving beyond generic review. One production workflow is auditing the correctness of static-analysis rules themselves, while a very young open source project is packaging requirements, defect detection, review, test cases, and test data as portable Agent Skills.</p>
+
+        <h2>Main signal</h2>
+        <p><strong>QA for agentic software is becoming evidence engineering.</strong> The useful boundary is increasingly not “did an agent review this?” but whether the workflow can connect intent, inspected code, structured findings, deterministic checks, and human acceptance into a traceable evidence chain.</p>
+
+        <h2>1. GitHub’s ESLint Refiner audits the rules that audit code</h2>
+        <p><strong>Experiment now</strong></p>
+        <p><strong>What changed:</strong> GitHub highlighted <a href="https://github.github.com/gh-aw/blog/" target="_blank" rel="noopener">ESLint Refiner</a> on September 15, a daily agent that reviews diagnostics from gh-aw’s custom ESLint rules, identifies false positives or weak checks, and proposes at most three concrete refinement tasks. Its latest run found a subtle false positive in a rule that recommended <code>@actions/exec</code> in files that can also execute through a shim where that global is unavailable.</p>
+        <p><strong>Why it matters:</strong> This is a strong QA pattern because the agent is not replacing the deterministic linter. It is auditing the quality of the linter’s rules using execution context and line-level evidence. The resulting issue included exact locations, a contrasting true-positive case, a proposed guard, and acceptance criteria designed to avoid an over-broad suppression.</p>
+        <p>The run also exposed an important operational counter-signal: it consumed 83 turns and about 89k tokens, and the audit tooling flagged that cost even though the task produced a useful result. A successful agent outcome is therefore not enough. Agent QA needs effectiveness, false-positive control, cost, and runtime evidence together.</p>
+        <p><strong>SDLC fit:</strong> static-analysis governance, custom lint-rule maintenance, quality-platform engineering, autonomous backlog discovery, and agent observability.</p>
+
+        <h2>2. codexqa pushes QA context into portable Agent Skills</h2>
+        <p><strong>Watch closely</strong></p>
+        <p><strong>What changed:</strong> The new <a href="https://github.com/openqa-cn/codexqa" target="_blank" rel="noopener">codexqa</a> repository packages five local-first Agent Skills for defect detection, code review, requirements analysis, manual test-case generation, and test-data construction. Its defect-detection design explicitly splits semantic judgment from infrastructure controls: AST rules and optional call-graph analysis narrow the work, model findings pass structured write-back rules, and a close gate checks coverage, report consistency, and evidence depth before completion.</p>
+        <p><strong>Why it matters:</strong> The architecture is more interesting than the product maturity. It treats requirements and test cases as first-class evidence for finding business-logic defects that syntax-oriented analysis misses, while constraining the model with deterministic collection and validation. That is directly aligned with where AI-native QA appears to be heading.</p>
+        <p><strong>Maturity:</strong> Very early. The repository was created September 5 and currently has only modest community traction. Its reported 7/7 defect result with zero false positives is explicitly one model, one run, and an in-house fixture, not a benchmark. The project deserves observation and hands-on evaluation, not a production recommendation yet.</p>
+        <p><strong>SDLC fit:</strong> requirements-to-test workflows, AI code review, business-logic defect discovery, manual test design, test-data preparation, and consulting assessments.</p>
+
+        <h2>Emerging pattern</h2>
+        <ul>
+          <li>QA agents are becoming useful one layer above deterministic analyzers, auditing the quality and context of their rules rather than replacing them.</li>
+          <li>Requirements and test cases are increasingly valuable as executable or inspectable evidence, not just prompt context.</li>
+          <li>Agent quality needs operational metrics such as token cost, turns, false positives, and blocked dependencies alongside task success.</li>
+          <li>Portable Agent Skills may become a practical distribution mechanism for specialized QA methods across coding-agent hosts.</li>
+        </ul>
+
+        <h2>Consulting angle</h2>
+        <p>For assessments, ask whether the team can trace an AI finding from requirement or policy, through the exact code inspected, to reproducible acceptance evidence. Also ask whether agent success dashboards expose false positives, token and runtime cost, blocked network or tool calls, and no-change outcomes. A workflow that produces correct findings but consumes excessive resources can still need architectural improvement.</p>
+        <p>Today’s evidence reinforces the existing Radar positions on narrow agents, specification-to-test enrichment, independent quality gates, and deterministic execution. It does not yet justify a maturity change or a new current-state radar point.</p>
+
+        <p><strong>Primary sources:</strong> <a href="https://github.github.com/gh-aw/blog/" target="_blank" rel="noopener">GitHub Agentic Workflows blog, ESLint Refiner</a> · <a href="https://github.com/openqa-cn/codexqa" target="_blank" rel="noopener">codexqa repository</a></p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
