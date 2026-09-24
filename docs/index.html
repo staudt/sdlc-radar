@@ -212,7 +212,7 @@
   topicButtons.forEach(b=>b.addEventListener('click',()=>renderTopic(b.dataset.topic)));
   slider.addEventListener('input',()=>loadState(Number(slider.value)));
   timelineButtons.forEach(b=>b.addEventListener('click',()=>loadState(Number(b.dataset.timelineIndex))));
-  renderTags(currentState.themeTags||[]);
+  renderState(currentState,checkpoints[checkpoints.length-1],checkpoints.length-1);
 })();
 </script>
 </body>
