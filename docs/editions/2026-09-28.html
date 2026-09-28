@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>AI SDLC Radar | 2026-09-28</title><link rel="stylesheet" href="../assets/style.css?v=20260924-1"></head>
+<body><header class="site-header"><div class="wrap header-row"><div><p class="eyebrow">AI SDLC Radar</p><h1>The agent stack is becoming stateful and infrastructural</h1></div><a class="button" href="../index.html">Back to Radar</a></div></header>
+<main class="wrap"><article class="card edition-page"><div class="edition-content"><p><strong>September 28, 2026</strong></p>
+<p><strong>What changed since Sep 25.</strong> Quick News is reserved for launches and industry buzz. The numbered sections carry the deeper SDLC and QA signals.</p>
+<h2>Main signal</h2><p><strong>The agent stack is becoming stateful and infrastructural.</strong> Persistent repository memory and managed MCP exposure sharpen the architecture lesson: quality increasingly depends on the lifecycle of memory, tools, policy, and evidence around the model.</p>
+<p><a href="https://staudt.github.io/sdlc-radar">View the current SDLC Radar</a></p>
+<h2>Quick News</h2><ul>
+<li><strong>Microsoft unveiled a new Copilot with Home, Code, and Autopilot.</strong> Code brings GitHub Copilot technology into a broader builder surface, while Autopilot is positioned as a persistent background agent. <a href="https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/">Microsoft</a></li>
+<li><strong>GitHub Copilot added Claude Opus 5.5, GPT-6 Sol, GPT-6 Luna, and Grok 4.7</strong> across eligible plans. <a href="https://github.blog/changelog/2026-09-25-github-copilot-weekly-releases-september-21/">GitHub</a></li>
+<li><strong>Copilot in Slack and Teams gained richer context and model switching.</strong> <a href="https://github.blog/changelog/2026-09-25-updates-to-github-copilot-for-slack-and-microsoft-teams/">GitHub</a></li>
+<li><strong>Google Antigravity SDK can run agent workflows locally and offline.</strong> <a href="https://developers.googleblog.com/introducing-support-for-local-ai-models-in-the-antigravity-sdk/">Google</a></li>
+</ul>
+<h2>1. Agent memory turns quality into a stateful problem</h2>
+<p>GitHub agentic autofix now reads Copilot Memory before resolving repository alerts and stores successful fix patterns back into memory. Those memories can also inform code review and cloud agent workflows.</p>
+<p><strong>Why it matters:</strong> prior learned state may influence later behavior. QA needs to test what was remembered, how stale memories are corrected, whether state crosses contexts, and how a regression is reproduced after memory changes.</p>
+<p><strong>Experiment now</strong></p>
+<p><a href="https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory/">Primary source: GitHub Changelog</a></p>
+<h2>2. MCP is moving into the API infrastructure layer</h2>
+<p>Google Cloud API Gateway can now act as a remote MCP server in public preview. Existing OpenAPI 3 operations can be exposed as MCP tools while retaining the REST authentication, quota, and logging path.</p>
+<p><strong>Why it matters:</strong> MCP is becoming a standard exposure mode for enterprise APIs. Existing API contracts gain a second invocation path that needs compatibility, discovery, and authorization testing.</p>
+<p><strong>Experiment now</strong></p>
+<p><a href="https://developers.googleblog.com/turn-your-rest-apis-into-mcp-tools-with-google-cloud-api-gateway/">Primary source: Google Developers Blog</a></p>
+<h2>3. Sandboxing and telemetry are becoming normal agent runtime controls</h2>
+<p>GitHub's weekly Copilot release puts local sandboxing and OpenTelemetry side by side. Permissions and observability are becoming part of the agent runtime contract.</p>
+<p><strong>Production direction, validate locally</strong></p>
+<p><a href="https://github.blog/changelog/2026-09-25-github-copilot-weekly-releases-september-21/">Primary source: GitHub</a></p>
+<h2>Future bet</h2>
+<p><strong>Catalyst/evidence:</strong> Copilot Memory now influences security autofix and can share learned state across Copilot features.</p>
+<p><strong>Bet:</strong> agent regression testing will need explicit state fixtures, not just prompt and repository fixtures.</p>
+<p><strong>Mechanism:</strong> persistent memories can make identical tasks behave differently depending on prior agent experience.</p>
+<p><strong>QA/SDLC implication:</strong> reproducibility may require memory snapshots, seeded histories, contamination tests, expiry rules, and provenance checks.</p>
+<p><strong>What would strengthen or falsify this bet:</strong> it strengthens if mainstream agent platforms expose memory versioning and test fixtures; it weakens if persistent memory remains narrow or rarely shared across workflows.</p>
+<h2>Emerging pattern</h2><p>The model is becoming one replaceable component in a larger runtime of persistent memory, managed tools, sandboxing, telemetry, approvals, and deterministic verification.</p>
+<h2>Consulting angle</h2><p>Add two questions to AI readiness reviews: what persistent state can influence an agent across runs, and how is it tested and governed? Which existing APIs are likely to become agent tools, and does the organization have contract, authorization, discovery, and observability coverage for that second invocation path?</p>
+<p><strong>Radar reassessment:</strong> Sep 28 is a material checkpoint. Main signal and Current picture stay stable; MCP as a QA surface moves from Watch closely to Experiment now.</p>
+</div></article></main></body></html>
