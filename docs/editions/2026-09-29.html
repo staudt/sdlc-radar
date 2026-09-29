@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>AI SDLC Radar | 2026-09-29</title><link rel="stylesheet" href="../assets/style.css?v=20260924-1"></head>
+<body><header class="site-header"><div class="wrap header-row"><div><p class="eyebrow">AI SDLC Radar</p><h1>Agent interfaces become explicit engineering surfaces</h1></div><a class="button" href="../index.html">Back to Radar</a></div></header>
+<main class="wrap"><article class="card edition-page"><div class="edition-content">
+<p><strong>September 29, 2026</strong></p>
+<p>Today's edition stays deliberately lean. The fresh evidence is less about another new agent architecture and more about the interfaces around agents becoming concrete, testable engineering surfaces.</p>
+<h2>Main signal</h2>
+<p><strong>Agent interfaces are becoming explicit engineering surfaces.</strong> As capable models get cheaper and faster, more of the QA problem moves into the contracts around them: UI state, approvals, browser tools, and the equivalence between agent-facing and human-facing paths.</p>
+<p><a href="https://staudt.github.io/sdlc-radar">View the current SDLC Radar</a></p>
+
+<h2>Quick News</h2>
+<ul>
+<li><strong>OpenAI DevDay is today.</strong> The developer keynote starts at 10:00 a.m. PT, with the program centered on APIs, tools, demos, and hands-on developer workflows. <a href="https://devday.openai.com/">OpenAI DevDay</a></li>
+<li><strong>Cloudflare Browser Run now allows multiple concurrent clients on one browser session.</strong> Separate browser contexts can isolate pages, cookies, and storage while sharing the underlying browser process. <a href="https://developers.cloudflare.com/changelog/product-group/ai/">Cloudflare changelog</a></li>
+<li><strong>The MSSQL VS Code extension v1.46 adds one-click installation of Microsoft SQL agent skills for GitHub Copilot.</strong> It also ships a new getting-started experience and GA SQL formatting. <a href="https://devblogs.microsoft.com/azure-sql/vscode-mssql-september2026/">Microsoft Azure SQL</a></li>
+</ul>
+
+<h2>1. Sonnet-class models are collapsing the old capability tiers</h2>
+<p>Anthropic launched Claude Sonnet 5.5 as a faster, lower-cost complement to Opus 5.5. Anthropic reports output more than 30% faster than Sonnet 5 and up to 30% lower task cost, while several coding and knowledge-work evaluations move much closer to Opus-class results.</p>
+<p>The exact benchmark numbers are vendor-reported and should be treated cautiously, but the architectural signal is stronger than any one score: routine agent work increasingly does not require the most expensive model tier.</p>
+<p><strong>Why it matters:</strong> model routing can become more aggressive. Planning, hard diagnosis, and acceptance can stay on premium reasoning while implementation, repeated tool use, and verification loops shift to cheaper models without giving up as much capability as teams previously expected.</p>
+<p><strong>Experiment now</strong></p>
+<p><a href="https://www.anthropic.com/claude-sonnet-5-5">Primary source: Anthropic Claude Sonnet 5.5</a></p>
+
+<h2>2. Agentic UI is becoming a testable state machine</h2>
+<p>Microsoft's new experimental Blazor AI components model agent interactions as observable content blocks with lifecycle state, tool calls, approvals, typed shared state, predictive state, cancellation, and explicit accept/reject paths.</p>
+<p><strong>Why it matters:</strong> this gives QA something much more concrete than chat transcripts. Tests can assert approval gating, pending-to-complete transitions, cancellation behavior, shared-state synchronization, rejected proposals, rollback to committed state, and whether tool results are rendered consistently.</p>
+<p><strong>Experiment now</strong></p>
+<p><a href="https://devblogs.microsoft.com/dotnet/build-agentic-ui-blazor/">Primary source: Microsoft .NET Blog</a></p>
+
+<h2>3. WebMCP creates a second browser-control plane</h2>
+<p>Cloudflare Browser Run now supports WebMCP across both Lab and Kitesurf backends using the draft <code>document.modelContext</code> API. Pages can expose structured tools that agents discover and call directly instead of relying only on screenshot, DOM, and click-driven interaction.</p>
+<p><strong>Why it matters:</strong> web applications may soon have both a human interaction surface and an agent interaction surface. That improves speed and reliability for agents, but it also creates a parity problem: structured tools must preserve the same business rules, authorization, side effects, and observable outcomes as the UI they bypass.</p>
+<p><strong>Watch closely</strong></p>
+<p><a href="https://developers.cloudflare.com/browser-run/features/webmcp/">Primary source: Cloudflare Browser Run WebMCP</a></p>
+
+<h2>Future bet</h2>
+<p><strong>Catalyst/evidence:</strong> WebMCP exposes typed browser actions while Blazor Agentic UI exposes approvals and shared application state as first-class interaction primitives.</p>
+<p><strong>Bet:</strong> browser QA will split into two synchronized planes: a semantic agent-tool path and a human-visible UI path.</p>
+<p><strong>Mechanism:</strong> agents will increasingly prefer structured actions because they are cheaper and more deterministic, while users still depend on the rendered interface.</p>
+<p><strong>QA/SDLC implication:</strong> teams will need parity tests that run equivalent scenarios through both paths and compare authorization, state transitions, side effects, telemetry, and final business outcomes.</p>
+<p><strong>What would strengthen or falsify this bet:</strong> it strengthens if major frameworks standardize page-level agent tools; it weakens if WebMCP remains niche and agents continue to rely mainly on DOM or visual control.</p>
+
+<h2>Emerging pattern</h2>
+<p>The model itself is becoming more interchangeable while interaction contracts become more important. Model routing, UI state machines, and semantic browser tools all push QA toward validating the system around the model rather than treating model output as the whole product.</p>
+
+<h2>Consulting angle</h2>
+<p>Add two concrete checks to agentic SDLC assessments: whether agent-facing actions are behaviorally equivalent to human-facing workflows, and whether agent UI state transitions are explicitly testable. Also revisit routing assumptions: Sonnet-class economics may make independent reviewer and evaluator loops affordable for more ordinary delivery work.</p>
+<p><strong>Radar reassessment:</strong> no new checkpoint today. The Sep 28 Radar already captures governed workflows, testability architecture, trajectory evidence, self-testing loops, and MCP as an active QA surface. Today's evidence strengthens those signals without materially changing the maintained board.</p>
+</div></article></main></body></html>
