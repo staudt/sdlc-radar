@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>AI SDLC Radar | 2026-09-30</title><link rel="stylesheet" href="../assets/style.css?v=20260924-1"></head>
+<body><header class="site-header"><div class="wrap header-row"><div><p class="eyebrow">AI SDLC Radar</p><h1>Agent economics and execution environments converge</h1></div><a class="button" href="../index.html">Back to Radar</a></div></header>
+<main class="wrap"><article class="card edition-page"><div class="edition-content">
+<p><strong>September 30, 2026</strong></p>
+<p>The strongest post-DevDay signal is not a single new model. Capable agent reasoning is getting cheaper at the same time that execution environments are becoming persistent, reusable, and easier to govern.</p>
+<h2>Main signal</h2>
+<p><strong>Agent economics and execution environments are converging into infrastructure.</strong> Lower-cost near-frontier reasoning makes longer verification loops practical, while persistent cloud environments move coding agents closer to durable engineering workers rather than disposable chat sessions.</p>
+<p><a href="https://staudt.github.io/sdlc-radar">View the current SDLC Radar</a></p>
+<h2>Quick News</h2><ul>
+<li><strong>GPT-6.1 Sol is rolling out in GitHub Copilot.</strong> GitHub says early testing completed agentic coding tasks with fewer tokens and steps than earlier GPT-6 and GPT-5.6 models. <a href="https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot/">GitHub</a></li>
+<li><strong>OpenAI introduced GPT-6.1 Sol.</strong> OpenAI positions it near GPT-6 Astra on coding, computer use, and professional work at one-fifth of Astra's standard API token price. <a href="https://openai.com/index/introducing-gpt-6-1-sol/">OpenAI</a></li>
+<li><strong>Codex is moving toward reusable cloud development environments.</strong> DevDay updates add persistent, configurable environments that can be accessed across devices. <a href="https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/">TechCrunch</a></li>
+<li><strong>Agents API self-hosted execution can preserve workspace state.</strong> OpenAI's new AWS Lambda MicroVM example demonstrates session execution where workspace files survive suspend and resume. <a href="https://developers.openai.com/cookbook/examples/agents_api/sandboxes/aws/readme">OpenAI Cookbook</a></li>
+</ul>
+<h2>1. Near-frontier reasoning gets cheap enough for deeper verification loops</h2>
+<p>GPT-6.1 Sol compresses the cost gap between routine agent work and premium reasoning. OpenAI highlights especially low cached-input pricing, while GitHub reports lower token and step use in early Copilot testing.</p>
+<p><strong>Why it matters:</strong> independent review, retry, diagnosis, and test-generation loops become easier to justify economically. Architecture can spend premium reasoning only where needed and use capable lower-cost models for repeated execution and verification.</p>
+<p><strong>Experiment now</strong></p>
+<p><a href="https://openai.com/index/introducing-gpt-6-1-sol/">Primary source: OpenAI GPT-6.1 Sol</a></p>
+<h2>2. Coding-agent environments are becoming durable engineering state</h2>
+<p>Codex's DevDay direction moves cloud execution away from isolated one-off tasks toward reusable environments. OpenAI's Agents API examples reinforce the same architecture: the managed harness can coordinate work while execution happens in controlled infrastructure whose workspace persists across turns.</p>
+<p><strong>Why it matters:</strong> QA now has to reason about environment lifecycle as part of agent correctness. Dependency drift, retained files, credentials, stale state, cleanup, reproducibility, and recovery become test dimensions rather than incidental implementation details.</p>
+<p><strong>Experiment now</strong></p>
+<p><a href="https://developers.openai.com/cookbook/examples/agents_api/sandboxes/aws/readme">Primary source: OpenAI Agents API sandbox example</a></p>
+<h2>3. Agent quality increasingly includes efficiency, not just task completion</h2>
+<p>GitHub's GPT-6.1 Sol rollout explicitly calls out fewer tokens and steps in early agentic coding tests. That is a useful evaluation shift: two agents can reach the same correct result while differing materially in tool churn, retries, latency, and cost.</p>
+<p><strong>Why it matters:</strong> agent evaluation suites should retain trajectory metrics alongside correctness. Step count, tool calls, retries, cache reuse, cost, and policy events can expose regressions that a final green test suite misses.</p>
+<p><strong>Study closely</strong></p>
+<p><a href="https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot/">Primary source: GitHub Copilot</a></p>
+<h2>Future bet</h2>
+<p><strong>Catalyst/evidence:</strong> cheaper near-frontier models, reusable Codex cloud environments, and persistent Agents API execution state.</p>
+<p><strong>Bet:</strong> agent regression suites will increasingly replay engineering tasks inside versioned environment fixtures and compare both outcomes and execution trajectories.</p>
+<p><strong>Mechanism:</strong> persistent environments make realistic multi-turn replay possible, while lower inference cost makes repeated actor/reviewer runs affordable.</p>
+<p><strong>QA/SDLC implication:</strong> test architecture will need fixtures for repository state, dependencies, credentials, memory, and environment lifecycle in addition to prompts and expected outputs.</p>
+<h2>Emerging pattern</h2>
+<p>The durable unit is becoming the agent runtime, not the model call: model routing, cached context, persistent execution, deterministic tools, policy boundaries, and independent evidence all participate in quality.</p>
+<h2>Consulting angle</h2>
+<p>Add environment lifecycle and agent-efficiency evidence to AI SDLC assessments. Ask whether teams can reproduce an agent run from repository and environment state, whether retained state is governed, and whether they measure tool churn, retries, latency, and cost alongside correctness.</p>
+<p><strong>Radar reassessment:</strong> no new checkpoint today. The Sep 28 maintained state already captures governed workflows, persistent state, deterministic feedback, trajectory evidence, self-testing loops, and permission separation. Today's evidence strengthens those signals without materially changing the board.</p>
+</div></article></main></body></html>
