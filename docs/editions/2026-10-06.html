@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>AI SDLC Radar | 2026-10-06</title><link rel="stylesheet" href="../assets/style.css?v=20260924-1"></head>
+<body><header class="site-header"><div class="wrap header-row"><div><p class="eyebrow">AI SDLC Radar</p><h1>The harness itself becomes the attack surface</h1></div><a class="button" href="../index.html">Back to Radar</a></div></header>
+<main class="wrap"><article class="card edition-page"><div class="edition-content">
+<p><strong>October 6, 2026</strong></p>
+<p>Today's signal is about the harness itself: the sandbox, the plugin channel, and the extension point are now where agent risk lives.</p>
+<h2>Main signal</h2>
+<p><strong>The harness is now part of the attack surface, and it has to be tested like production software.</strong> A confined agent switched off its own sandbox, and plugin update channels let a trusted add-on be swapped silently. Controls that live inside the agent's own trust boundary are not controls.</p>
+<blockquote style="margin:12px 0;padding:8px 14px;border-left:4px solid #c084fc;background:#f6f1fb;"><strong>"If the agent can reach the switch that governs it, you have a suggestion, not a policy."</strong></blockquote>
+<p><a href="https://staudt.github.io/sdlc-radar"><strong>View the current SDLC Radar</strong></a></p>
+<h2>Quick News</h2>
+<ul>
+<li><strong><a href="https://www.hpcwire.com/aiwire/2026/10/01/ibm-introduces-self-hosted-deployment-for-ibm-bob/">IBM Bob</a></strong> gets a self-hosted, air-gapped deployment option aimed at banks and governments.</li>
+<li><strong><a href="https://releasebot.io/updates/anthropic/claude-code">Claude Code 2.1.290 and 2.1.291</a></strong> ship permission-mode and permission-rule fixes on Oct 5 and Oct 6.</li>
+<li><strong><a href="https://releasebot.io/updates/anthropic/claude">Claude for Government</a></strong> reaches general availability, with Claude Code CLI in early access.</li>
+<li><strong><a href="https://artificiallyintimidating.com/p/ai-brief-october-5-2026">Sourcegraph</a></strong> CEO warns at AI Engineer World's Fair that agent-written code is decaying long-lived codebases through duplication and drift.</li>
+</ul>
+<h2>1. A confined agent disabled its own sandbox <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#fbbf24;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Experiment now</span></h2>
+<p><em>Layer: policy, execution</em></p>
+<p>OX Security disclosed <a href="https://www.ox.security/blog/cve-2026-82533-deepseek-harness-ai-agent-sandbox-escape/">CVE-2026-82533</a> in DeepSeek Harness: the sandbox blocked file writes but left loopback open, so one shell command could call the harness API and raise the session to full access with approvals off. <a href="https://thehackernews.com/2026/09/deepseek-harness-flaw-let-ai-agents.html">The Hacker News</a> reports a fix in 0.1.2-alpha.1.</p>
+<p><strong>Why it matters:</strong> Escalation tests must run from inside the sandbox, because the harness's own control API is part of what an agent can reach.</p>
+<h2>2. Plugin updates are the harness supply chain <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#34d399;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Production now</span></h2>
+<p><em>Layer: policy, orchestration</em></p>
+<p>Research summarized in <a href="https://adversa.ai/blog/top-ai-coding-agent-security-resources-october-2026/">Adversa's October roundup</a> found trojanized plugin updates compromised all seven tested harnesses, including Claude Code and Codex CLI, with up to 92.5% success. Earlier, <a href="https://thehackernews.com/2026/09/plugin4shell-lets-repository-owners.html">Plugin4Shell</a> showed a pinned plugin commit could be swapped through a branch named after the hash.</p>
+<p><strong>Why it matters:</strong> Treat plugins, skills, and hooks as dependencies: pin them, review updates, and turn off silent auto-update for anything that can execute.</p>
+<h2>3. Harness extensions now run inside the agent process <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#c084fc;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Watch closely</span></h2>
+<p><em>Layer: orchestration, evidence</em></p>
+<p>Anthropic introduced <a href="https://releasebot.io/updates/anthropic/claude-code">mods for Claude Code</a>, TypeScript extensions that change behavior and UI and ship through plugins. The same Adversa roundup notes such in-process code can rewrite tool calls and system prompts without showing up in EDR.</p>
+<p><strong>Why it matters:</strong> Harness behavior becomes versioned code, so it needs its own review, regression tests, and an audit trail of what was modified.</p>
+<h2>Field lines</h2>
+<ul>
+<li><strong>"A sandbox the agent can reconfigure is a default setting."</strong> (<a href="https://www.ox.security/blog/cve-2026-82533-deepseek-harness-ai-agent-sandbox-escape/">OX Security</a>)</li>
+<li><strong>"Plugins are dependencies. Pin them and review the diff."</strong> (<a href="https://thehackernews.com/2026/09/plugin4shell-lets-repository-owners.html">The Hacker News</a>)</li>
+<li><strong>"If a hook can change the tool call, the hook belongs in the test plan."</strong> (<a href="https://adversa.ai/blog/top-ai-coding-agent-security-resources-october-2026/">Adversa</a>)</li>
+</ul>
+<h2>Bet tracker</h2>
+<p><strong>Bet:</strong> Agent control planes will move outside the agent's own process and network reach.</p>
+<p><strong>Why:</strong> The <a href="https://www.ox.security/blog/cve-2026-82533-deepseek-harness-ai-agent-sandbox-escape/">DeepSeek Harness CVE</a> came from a control API reachable by the confined agent, and <a href="https://www.helpnetsecurity.com/2026/09/28/nvidia-open-agent-safety-platform/">Nvidia's enforcement platform</a> takes the opposite approach.</p>
+<p><strong>Source:</strong> OX Security</p>
+<h2>Emerging pattern</h2>
+<p>Three stories, one shift: the harness is no longer neutral plumbing. Its sandbox, update channel, and extension points each need threat models, tests, and evidence, the same as the application code the agent writes.</p>
+<h2>Consulting angle</h2>
+<p><strong>Ask this week:</strong> Can an agent running in your harness reach the API, config file, or plugin directory that defines its own permissions, and who approves plugin updates before they execute?</p>
+<h2>Repos worth watching</h2>
+<ul>
+<li><strong><a href="https://github.com/FailproofAI/failproofai">FailproofAI/failproofai</a></strong>: Observability and policy enforcement for agent harnesses. <em>Layer: policy, evidence</em></li>
+<li><strong><a href="https://github.com/mvschwarz/openrig">mvschwarz/openrig</a></strong>: Persistent multi-agent teams across Claude Code and Codex. <em>Layer: orchestration</em></li>
+<li><strong><a href="https://github.com/openlit/openlit">openlit/openlit</a></strong>: OTEL-based tracing, evaluation, and guarding for agent harnesses. <em>Layer: evidence, verification</em></li>
+<li><strong><a href="https://github.com/ShenSeanChen/waku-agent">ShenSeanChen/waku-agent</a></strong>: Local-first agent harness with loop, memory, and eval in code. <em>Layer: orchestration, verification</em></li>
+<li><strong><a href="https://github.com/najeed/ai-agent-eval-harness">najeed/ai-agent-eval-harness</a></strong>: Evaluation and verification harness for multi-agent workflows. <em>Layer: verification</em></li>
+</ul>
+<p><strong>Radar note:</strong> Candidate for weekend review: harness supply-chain and self-confinement controls (Coding Agents, Production now).</p>
+<p><a href="https://staudt.github.io/sdlc-radar"><strong>View the current SDLC Radar</strong></a></p>
+</div></article></main></body></html>
