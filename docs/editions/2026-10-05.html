@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>AI SDLC Radar | 2026-10-05</title><link rel="stylesheet" href="../assets/style.css?v=20260924-1"></head>
+<body><header class="site-header"><div class="wrap header-row"><div><p class="eyebrow">AI SDLC Radar</p><h1>Longer agent runs shift the burden to review and evidence</h1></div><a class="button" href="../index.html">Back to Radar</a></div></header>
+<main class="wrap"><article class="card edition-page"><div class="edition-content">
+<p><strong>October 5, 2026</strong></p>
+<p>Today's signal is about the length of agent runs: sessions are getting longer and touching more files, which raises the value of checkpoints, independent review, and quality gates beyond passing tests.</p>
+<h2>Main signal</h2>
+<p><strong>Longer agent runs shift the burden from generation to review and evidence.</strong> Sessions are lasting minutes instead of seconds, harnesses are adding built-in reviewers and fallback paths, and the code agents leave behind is starting to show maintainability debt.</p>
+<blockquote><strong>"The longer the agent runs, the more the harness has to remember and the more the reviewer has to check."</strong></blockquote>
+<p><a href="https://staudt.github.io/sdlc-radar"><strong>View the current SDLC Radar</strong></a></p>
+<h2>Quick News</h2>
+<ul>
+<li><strong><a href="https://www.hpcwire.com/aiwire/2026/10/01/ibm-introduces-self-hosted-deployment-for-ibm-bob/">IBM Bob</a></strong> adds self-hosted deployment for air-gapped environments.</li>
+<li><strong><a href="https://aiweekly.co/ai-news-today">Photon AI</a></strong> raises a $4.5 million seed round for conversational agents that replace mobile app interactions.</li>
+<li><strong><a href="https://releasebot.io/updates/anthropic/claude-code">Claude Code 2.1.290</a></strong> ships fixes for agent view sessions, permission modes, and permission rules.</li>
+</ul>
+<h2>1. Agent sessions get longer and touch more files <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#c084fc;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Watch closely</span></h2>
+<p><em>Layer: orchestration, evidence</em></p>
+<p>Anthropic's agentic coding trends data, <a href="https://blurbrahlab.medium.com/ai-coding-sessions-jumped-from-4-to-23-minutes-top-10-ai-flutter-news-october-4-2026-652a259333df">summarized here</a>, reports average coding sessions growing from 4 to 23 minutes and multi-file editing rising from 34% to 78%.</p>
+<p><strong>Why it matters:</strong> Longer, wider runs need resumable checkpoints and per-step evidence, because a single end-of-run diff is too large to review.</p>
+<h2>2. Reviewer and fallback become built-in harness features <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#fbbf24;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Experiment now</span></h2>
+<p><em>Layer: verification, orchestration</em></p>
+<p>Claude Code 2.1.288 adds a built-in reviewer to every session and an automatic fallback to a backup model when the primary is unavailable, per the <a href="https://releasebot.io/updates/anthropic/claude-code">release notes</a>.</p>
+<p><strong>Why it matters:</strong> Test the fallback path and the reviewer's independence, because a silent model swap changes both behavior and the evidence you can rely on.</p>
+<h2>3. Agent-written code starts to decay long-lived codebases <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#fbbf24;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Experiment now</span></h2>
+<p><em>Layer: verification</em></p>
+<p>Sourcegraph's CEO told the AI Engineer World's Fair that agents are producing a tidal wave of code, with <a href="https://artificiallyintimidating.com/p/ai-brief-october-5-2026">duplication, drifting standards, and brittle dependencies</a> accumulating in decades-old codebases.</p>
+<p><strong>Why it matters:</strong> Acceptance gates need maintainability checks such as duplication and dependency drift, not only green tests.</p>
+<h2>Field lines</h2>
+<ul>
+<li><strong>"A green test suite tells you the change works. It does not tell you the codebase is healthier."</strong> (<a href="https://artificiallyintimidating.com/p/ai-brief-october-5-2026">Sourcegraph via AI Brief</a>)</li>
+<li><strong>"If the fallback model reviews its own work, you do not have a reviewer."</strong> (<a href="https://releasebot.io/updates/anthropic/claude-code">Claude Code release notes</a>)</li>
+</ul>
+<h2>Emerging pattern</h2>
+<p>Run length, reviewer design, and code health are one problem: how much unreviewed change an agent can accumulate before someone with evidence looks at it.</p>
+<h2>Consulting angle</h2>
+<p><strong>Ask this week:</strong> What is the largest unreviewed change an agent can produce in one run, and what checkpoint or gate stops it from growing?</p>
+<h2>Repos worth watching</h2>
+<ul>
+<li><strong><a href="https://github.com/omnigent-ai/omnigent">omnigent-ai/omnigent</a></strong>: Meta-harness that orchestrates Claude Code, Codex, and Cursor with policy and sandboxing. <em>Layer: orchestration, policy</em></li>
+<li><strong><a href="https://github.com/alumnium-hq/alumnium">alumnium-hq/alumnium</a></strong>: AI end-to-end testing that exports to Playwright, Selenium, and Appium. <em>Layer: verification</em></li>
+<li><strong><a href="https://github.com/argos-ci/argos">argos-ci/argos</a></strong>: Open-source visual testing platform for teams and AI agents. <em>Layer: verification, evidence</em></li>
+<li><strong><a href="https://github.com/ai-boost/awesome-harness-engineering">ai-boost/awesome-harness-engineering</a></strong>: Curated list of harness tools, evals, permissions, and orchestration patterns. <em>Layer: orchestration, policy</em></li>
+<li><strong><a href="https://github.com/OpenTracy/OpenTracy">OpenTracy/OpenTracy</a></strong>: Self-improving harness loop with propose, eval, approve, and ship stages. <em>Layer: verification, orchestration</em></li>
+</ul>
+<p><strong>Radar note:</strong> No checkpoint today.</p>
+<p><a href="https://staudt.github.io/sdlc-radar"><strong>View the current SDLC Radar</strong></a></p>
+</div></article></main></body></html>
