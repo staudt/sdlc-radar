@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>AI SDLC Radar | 2026-10-08</title><link rel="stylesheet" href="../assets/style.css?v=20260924-1"></head>
+<body><header class="site-header"><div class="wrap header-row"><div><p class="eyebrow">AI SDLC Radar</p><h1>Guardrails need memory, scores, and owners</h1></div><a class="button" href="../index.html">Back to Radar</a></div></header>
+<main class="wrap"><article class="card edition-page"><div class="edition-content">
+<p><strong>October 8, 2026</strong></p>
+<p>Today's theme is agent guardrails that can actually be tested: policies that remember what an agent already did, reviewers that publish their accuracy, and MCP servers that nobody vetted, all of which decide whether your source code, credentials, and delivery pipeline stay protected.</p>
+<h2>Main signal</h2>
+<p><strong>Agent controls are moving from per-action checks to history-aware policy and measured reviewers.</strong> A sandbox that tracks what an agent has already done can cap Slack posts, Git pushes, or API spend, while a benchmark now scores AI code reviewers on the noise they add. Both only help if the surrounding tool supply chain, starting with MCP servers, is vetted.</p>
+<blockquote style="margin:12px 0;padding:8px 14px;border-left:4px solid #c084fc;background:#f6f1fb;"><strong>"A guardrail that forgets what the agent already did cannot stop a slow leak."</strong></blockquote>
+<p><a href="https://staudt.github.io/sdlc-radar"><strong>View the current SDLC Radar</strong></a></p>
+<h2>Quick News</h2>
+<ul>
+<li><strong><a href="https://techtimes.com/articles/328621/20261006/six-weeks-after-google-jpmorgan-patched-mcp-flaw-us-servers-stay-exposed.htm">US government MCP servers</a></strong> stay exposed six weeks after Google and JPMorgan patched the same flaw.</li>
+<li><strong><a href="https://scworld.com/perspective/mcp-fixed-secret-handling-url-elicitation-moved-the-phishing-risk-into-the-browser">URL elicitation in MCP</a></strong> fixed secret handling but moved the phishing risk into the browser, per SC Media.</li>
+<li><strong><a href="https://aiagentsdirectory.com/news/ai-agents-news-brief-october-7-2026">MCP Toolbox Java SDK 1.0</a></strong> ships type-safe data access for agents, and OpenAI reports scoring computer-use agents against legal and procurement tasks with 8 to 50 criteria each.</li>
+</ul>
+<h2>1. Agent sandboxes start enforcing policy over history <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#fbbf24;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Experiment now</span></h2>
+<p><em>Layer: policy, execution</em></p>
+<p>AWS released <a href="https://aws.amazon.com/blogs/opensource/introducing-strands-box-ai-agent-sandboxes-powered-by-dogwood/">Strands Box</a>, an open-source agent sandbox that adds OS-level isolation and policies that track earlier actions, so limits like three Slack posts per ten minutes or capped API spend can be enforced, per <a href="https://www.theregister.com/ai-and-ml/2026/10/07/aws-launches-open-source-ai-agent-sandbox-to-prevent-yolo-mode-disasters/5301687">The Register</a>. It supports macOS at launch, and AWS acknowledges its shell and Python interpreters run in a trusted process outside the sandbox. It builds on <a href="https://infoq.com/news/2026/08/aws-dogwood-agent-policy">Dogwood</a>, AWS's Cedar-compatible language for governing sequences of tool calls, whose reference interpreter is not production-ready.</p>
+<p><strong>Why it matters:</strong> Test your guardrails with multi-step abuse such as many small sends or pushes, because a per-call check passes every one of them.</p>
+<h2>2. AI code review gets a public scorecard <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#fbbf24;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Experiment now</span></h2>
+<p><em>Layer: verification</em></p>
+<p>GitHub published <a href="https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/">ReviewBench</a>, an open benchmark of 219 pull requests from 187 repositories and 19 languages that scores reviewers on precision, recall, and valid findings beyond the reference set, with <a href="https://thenewstack.io/github-reviewbench-code-review/">The New Stack</a> covering the launch. GitHub built it with Microsoft and its own Copilot code review leads the first leaderboard, so treat the ranking as vendor-reported.</p>
+<p><strong>Why it matters:</strong> Run your own reviewer against your own pull requests and track noise as well as catches, because a reviewer that floods developers with false findings gets ignored.</p>
+<h2>3. Public MCP servers arrive without vetting <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#34d399;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Production now</span></h2>
+<p><em>Layer: policy, orchestration</em></p>
+<p>An OX Security study of 15,465 public MCP servers, reported by <a href="https://thehackernews.com/2026/10/welcome-to-jungle-what-we-found-inside.html">The Hacker News</a>, found no vetting, guardrails, or review across the marketplaces it indexed. <a href="https://techtimes.com/articles/328621/20261006/six-weeks-after-google-jpmorgan-patched-mcp-flaw-us-servers-stay-exposed.htm">Unpatched government servers</a> show the same gap in practice.</p>
+<p><strong>Why it matters:</strong> Keep an allowlist of approved MCP servers with owners and pinned versions, because every unlisted server is code your agents can run with your credentials.</p>
+<h2>Field lines</h2>
+<ul>
+<li><strong>"A guardrail that forgets what the agent already did cannot stop a slow leak."</strong> (<a href="https://www.theregister.com/ai-and-ml/2026/10/07/aws-launches-open-source-ai-agent-sandbox-to-prevent-yolo-mode-disasters/5301687">The Register</a>)</li>
+<li><strong>"An AI code reviewer without a published precision score is an opinion, not a quality gate."</strong> (<a href="https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/">GitHub</a>)</li>
+<li><strong>"An MCP server nobody vetted is a dependency nobody owns."</strong> (<a href="https://thehackernews.com/2026/10/welcome-to-jungle-what-we-found-inside.html">The Hacker News</a>)</li>
+</ul>
+<h2>Bet tracker</h2>
+<p><strong>Bet:</strong> Agent control planes will move outside the agent's own process and network reach. <strong>Strengthening.</strong> <a href="https://aws.amazon.com/blogs/opensource/introducing-strands-box-ai-agent-sandboxes-powered-by-dogwood/">Strands Box</a> enforces policy at the OS level rather than inside the agent, though its interpreters sit in a trusted process, so the boundary is not yet complete.</p>
+<h2>Emerging pattern</h2>
+<p>Enforcement, measurement, and sourcing are converging: policies need memory, reviewers need scores, and tools need owners. Each is a testable property that most client harnesses have not yet tested.</p>
+<h2>Consulting angle</h2>
+<p><strong>Ask this week:</strong> Which agent limits in your harness are checked per action only, and which MCP servers can your agents call that no one on the team has reviewed?</p>
+<h2>Repos worth watching</h2>
+<ul>
+<li><strong><a href="https://github.com/cedar-policy/cedar-for-agents">cedar-policy/cedar-for-agents</a></strong>: Cedar tooling for governing agent tool calls. <em>Layer: policy</em></li>
+<li><strong><a href="https://github.com/microsoft/nvx">microsoft/nvx</a></strong>: Cross-platform micro-VM sandbox for agentic workloads. <em>Layer: execution</em></li>
+<li><strong><a href="https://github.com/Firma-AI/openfirma">Firma-AI/openfirma</a></strong>: Local sidecar that gates every outbound agent call against Cedar policies. <em>Layer: policy, evidence</em></li>
+<li><strong><a href="https://github.com/microsoft/playwright-mcp">microsoft/playwright-mcp</a></strong>: Playwright MCP server. <em>Layer: execution, verification</em></li>
+<li><strong><a href="https://github.com/earendil-works/gondolin">earendil-works/gondolin</a></strong>: Linux micro-VM agent sandbox with a TypeScript control plane. <em>Layer: execution</em></li>
+</ul>
+<p><strong>Radar note:</strong> Candidate for weekend review: history-aware agent policy and sandboxing (Coding Agents, Experiment now).</p>
+<p><a href="https://staudt.github.io/sdlc-radar"><strong>View the current SDLC Radar</strong></a></p>
+</div></article></main></body></html>
