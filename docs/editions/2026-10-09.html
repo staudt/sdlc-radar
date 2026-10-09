@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>AI SDLC Radar | 2026-10-09</title><link rel="stylesheet" href="../assets/style.css?v=20260924-1"></head>
+<body><header class="site-header"><div class="wrap header-row"><div><p class="eyebrow">AI SDLC Radar</p><h1>Agent work moves into the delivery pipeline and the cost tier</h1></div><a class="button" href="../index.html">Back to Radar</a></div></header>
+<main class="wrap"><article class="card edition-page"><div class="edition-content">
+<p><strong>October 9, 2026</strong></p>
+<p>Today's theme is where agent-written code gets accepted: coding agents are being folded into delivery pipelines, replayable test steps are replacing scripted ones, and cheap small models are becoming subagents, all of which decide whether your releases are gated by evidence or by a model's confidence.</p>
+<h2>Main signal</h2>
+<p><strong>Agent output is being tied to the pipeline that ships it, and the cost of each agent step keeps falling.</strong> A delivery platform now owns a coding agent that opens pull requests from isolated VMs, and a 75% cheaper small model is pitched as a subagent for coding work. More cheap agent steps means more unreviewed change reaches CI, so the acceptance gate, not the model, decides what ships.</p>
+<blockquote style="margin:12px 0;padding:8px 14px;border-left:4px solid #c084fc;background:#f6f1fb;"><strong>"A cheaper model in the loop is only a saving if the gate behind it catches what it gets wrong."</strong></blockquote>
+<p><a href="https://staudt.github.io/sdlc-radar"><strong>View the current SDLC Radar</strong></a></p>
+<h2>Quick News</h2>
+<ul>
+<li><strong><a href="https://openpr.com/news/4653467/sofy-ai-launches-ai-test-agents-for-microsoft-dynamics-365">Sofy.ai</a></strong> makes its no-code, self-healing AI test agents for Microsoft Dynamics 365 generally available, per its own release.</li>
+<li><strong><a href="https://sealingtech.com/2026/10/07/describe-dont-script-a-new-mindset-for-testing-ai">SealingTech</a></strong> describes testing an AI product by describing intent to mabl agents instead of scripting steps, a single vendor-linked case study.</li>
+</ul>
+<h2>1. A delivery platform buys a coding agent <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#c084fc;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Watch closely</span></h2>
+<p><em>Layer: orchestration, execution</em></p>
+<p><a href="https://www.harness.io/blog/harness-acquires-augment-code-cosmos">Harness acquired select assets of Augment Code</a>, including Cosmos, the Auggie CLI, and the Code Context Engine. Per <a href="https://devops.com/harness-acquires-augment-code-assets-to-expand-reach-into-ai-coding/">DevOps.com</a>, Cosmos runs agents on isolated virtual machines that plan a requirement, write and test code, and open a pull request, while <a href="https://thenewstack.io/harness-augment-cosmos-acquisition">The New Stack</a> notes the planned link between code understanding and delivery history has not shipped.</p>
+<p><strong>Why it matters:</strong> Coding agents and CI/CD are merging into one product, so ask who owns the acceptance gate between the agent's pull request and your pipeline before the vendor decides for you.</p>
+<h2>2. Agent-driven test steps get recorded and replayed <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#fbbf24;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Experiment now</span></h2>
+<p><em>Layer: verification, execution</em></p>
+<p>WebdriverIO v10, released October 5 and described in <a href="https://www.testmuai.com/blog/webdriverio-v10-release/">TestMu AI's write-up</a>, adds a CLI session an agent can drive step by step and export as a test, plus a <code>browser.act()</code> command that asks a model once, records the generated commands, and replays them without a model afterward. That account comes from a commercial testing vendor, so check the official release notes before adopting.</p>
+<p><strong>Why it matters:</strong> Record-once, replay-deterministically keeps model nondeterminism out of regression runs, so review the recorded commands as test code, because that is what actually executes in CI.</p>
+<h2>3. Small models become the cheap subagent tier <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#c084fc;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Watch closely</span></h2>
+<p><em>Layer: orchestration, verification</em></p>
+<p>Anthropic released <a href="https://aiweekly.co/alerts/introducing-claude-haiku-55">Claude Haiku 5.5</a> on October 7 at $0.10 and $0.50 per million input and output tokens for prompts up to 100,000 tokens, about 75% below Haiku 4.5, and positions it as a <a href="https://letsdatascience.com/news/anthropic-releases-claude-haiku-55-with-lower-prices-and-eff-f698c663">subagent alongside Opus 5.5 and Sonnet 5.5</a> for coding work. The benchmark gains, such as 72.4% on an offline OSWorld 2.1 subset, are vendor-reported.</p>
+<p><strong>Why it matters:</strong> Cheap subagents multiply the number of unreviewed steps per run, so test routing rules and the quality gate that escalates a weak draft, not just the model.</p>
+<h2>Field lines</h2>
+<ul>
+<li><strong>"When the coding agent and the pipeline come from one vendor, the acceptance gate needs an owner who is not the vendor."</strong> (<a href="https://www.harness.io/blog/harness-acquires-augment-code-cosmos">Harness</a>)</li>
+<li><strong>"A test step an AI wrote once and a pipeline replays forever is test code, and it needs code review."</strong> (<a href="https://www.testmuai.com/blog/webdriverio-v10-release/">TestMu AI</a>)</li>
+<li><strong>"A cheaper model in the loop is only a saving if the gate behind it catches what it gets wrong."</strong> (<a href="https://aiweekly.co/alerts/introducing-claude-haiku-55">AI Weekly</a>)</li>
+</ul>
+<h2>Bet tracker</h2>
+<p><strong>Bet:</strong> Cost, model strength, and independent verification will be optimized together at runtime through workflow routing. <strong>Strengthening.</strong> A <a href="https://letsdatascience.com/news/anthropic-releases-claude-haiku-55-with-lower-prices-and-eff-f698c663">small model sold as a subagent</a> adds a priced tier to the cascade pattern in <a href="https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/">HydraFusion</a>, which makes the routing policy and its gate the artifact to test.</p>
+<h2>Consulting angle</h2>
+<p><strong>Ask this week:</strong> When an agent opens a pull request, which gate, owned by whom, decides it can merge, and does that gate change when the agent switches to a cheaper model?</p>
+<h2>Repos worth watching</h2>
+<ul>
+<li><strong><a href="https://github.com/webdriverio/webdriverio">webdriverio/webdriverio</a></strong>: v10 with agent session CLI and record-and-replay steps. <em>Layer: verification, execution</em></li>
+<li><strong><a href="https://github.com/microsoft/playwright">microsoft/playwright</a></strong>: Browser automation with planner, generator, and healer test agents. <em>Layer: verification, execution</em></li>
+<li><strong><a href="https://github.com/anthropics/claude-code">anthropics/claude-code</a></strong>: Coding agent harness with frequent permission and reviewer releases. <em>Layer: orchestration, policy</em></li>
+<li><strong><a href="https://github.com/Hmbown/CodeWhale">Hmbown/CodeWhale</a></strong>: Community open-source agent harness. <em>Layer: orchestration</em></li>
+<li><strong><a href="https://github.com/HKUDS/OpenHarness">HKUDS/OpenHarness</a></strong>: Open-source Python implementation of the agent harness pattern. <em>Layer: orchestration, execution</em></li>
+</ul>
+<p><strong>Radar note:</strong> Candidate for weekend review: coding agents absorbed into delivery platforms (Coding Agents, Watch closely).</p>
+<p><a href="https://staudt.github.io/sdlc-radar"><strong>View the current SDLC Radar</strong></a></p>
+</div></article></main></body></html>
