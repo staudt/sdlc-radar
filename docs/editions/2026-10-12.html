@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>AI SDLC Radar | 2026-10-12</title><link rel="stylesheet" href="../assets/style.css?v=20260924-1"></head>
+<body><header class="site-header"><div class="wrap header-row"><div><p class="eyebrow">AI SDLC Radar</p><h1>Agent controls have to fail closed</h1></div><a class="button" href="../index.html">Back to Radar</a></div></header>
+<main class="wrap"><article class="card edition-page"><div class="edition-content">
+<p><strong>October 12, 2026</strong></p>
+<p>Today's theme is whether agent controls fail closed: hooks that approve or block actions, sandboxes built from files an attacker may control, and background agent fleets that spend money on their own, all of which decide whether your source code, credentials, and cloud bill stay under your control when something goes wrong.</p>
+<h2>Main signal</h2>
+<p><strong>Agent harnesses are being asked what happens when a control itself breaks, times out, or is tampered with.</strong> A security hook that fails to start can silently let a risky command run unless you opt in to blocking, and a sandbox can be weakened by a writable helper executable or a search-tool config file. The same week, agents gained the ability to write programs that launch up to 1,000 sub-agents, so a control that fails open now fails at fleet scale.</p>
+<blockquote style="margin:12px 0;padding:8px 14px;border-left:4px solid #c084fc;background:#f6f1fb;"><strong>"A security hook that fails open is a suggestion: test what your agent can do when the control crashes."</strong></blockquote>
+<p><a href="https://staudt.github.io/sdlc-radar"><strong>View the current SDLC Radar</strong></a></p>
+<h2>Quick News</h2>
+<ul>
+<li><strong><a href="https://github.com/github/gh-aw/releases">GitHub Agentic Workflows v0.91.8</a></strong> (Oct 11) renders agent sessions as full elapsed-time timelines across Copilot, Codex, Claude, and Gemini engines.</li>
+<li><strong><a href="https://vuldb.com/cve/CVE-2026-108861">Odoo MCP</a></strong> (CVE-2026-108861, per VulDB) lets a client read denied fields through its execute_method tool, bypassing field-level access controls in versions 1.0.0 to 1.3.2.</li>
+<li><strong><a href="https://github.com/UKGovernmentBEIS/inspect_ai/releases">Inspect AI 0.3.278</a></strong> (Oct 9) extends tool review to cover handoff() calls between agents.</li>
+</ul>
+<h2>1. Claude Code hooks can now fail closed <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#34d399;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Production now</span></h2>
+<p><em>Layer: policy, evidence</em></p>
+<p><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.295">Claude Code 2.1.295</a> (Oct 8) adds <code>onFailure: "block"</code> for command and HTTP hooks, so an action is blocked when its hook cannot start, times out, or exits unexpectedly instead of proceeding. <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.296">Version 2.1.296</a> (Oct 9) fixes a <code>BASH_ARGV0</code> permission bypass, an interrupt that let an unchecked prompt past a UserPromptSubmit hook, and headless sessions starting MCP servers that were disabled for a folder.</p>
+<p><strong>Why it matters:</strong> A hook is only a control if its failure blocks the action, so set fail-closed on every policy hook and test it by breaking the hook on purpose.</p>
+<h2>2. Sandbox hardening now covers the sandbox's own inputs <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#fbbf24;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Experiment now</span></h2>
+<p><em>Layer: execution, policy</em></p>
+<p><a href="https://github.com/openai/codex/releases/tag/rust-v0.162.0">Codex 0.162.0</a> (Oct 8, with 0.162.1 following Oct 9) rejects writable executables used to build its sandbox, including bubblewrap binaries found on PATH, and stops ripgrep configuration from weakening deny-glob masks. It also adds managed Git worktree tools for trusted projects behind a feature flag.</p>
+<p><strong>Why it matters:</strong> Sandbox tests should attack what the sandbox is built from, such as PATH entries and tool config files, because an agent that can write those can loosen its own limits.</p>
+<h2>3. Agents can now write programs that run agent fleets <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#c084fc;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Watch closely</span></h2>
+<p><em>Layer: orchestration, evidence</em></p>
+<p>Anthropic released <a href="https://platform.claude.com/docs/en/release-notes/overview">Dynamic Workflows in beta</a> for Managed Agents on Oct 9: the agent writes a workflow program that runs agents in phases in the background, and the <a href="https://platform.claude.com/docs/en/managed-agents/workflow-runs">workflow runs documentation</a> sets a 1,000-agent limit per run, a 24-hour default lifetime, ten open runs per session, and pauses every run when the session budget is reached. A run has no price of its own, and per-run usage must be assembled by adding up thread token counts. Claude Code 2.1.296 adds a matching <code>CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL</code> setting to run all workflow agents on one model.</p>
+<p><strong>Why it matters:</strong> The orchestration plan is now generated code you did not write, so require a budget, a thread limit, and a per-run usage record before any team enables it.</p>
+<h2>Field lines</h2>
+<ul>
+<li><strong>"A security hook that fails open is a suggestion: test what your agent can do when the control crashes."</strong> (<a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.295">Claude Code release notes</a>)</li>
+<li><strong>"Your agent sandbox is only as strong as the files and executables it is assembled from."</strong> (<a href="https://github.com/openai/codex/releases/tag/rust-v0.162.0">Codex release notes</a>)</li>
+<li><strong>"When an agent can write a program that launches a thousand agents, the cloud budget becomes a safety control."</strong> (<a href="https://platform.claude.com/docs/en/managed-agents/workflow-runs">Anthropic documentation</a>)</li>
+</ul>
+<h2>Bet tracker</h2>
+<p><strong>Bet:</strong> Agent control planes will move outside the agent's own process and network reach. <strong>Strengthening.</strong> Claude Code's managed-settings hooks now have an explicit fail-closed mode, and <a href="https://github.com/openai/codex/releases/tag/rust-v0.162.0">Codex</a> refuses sandbox executables the agent could have written.</p>
+<p><strong>Bet:</strong> Cost, model strength, and independent verification will be optimized together at runtime through workflow routing. <strong>Strengthening.</strong> A <a href="https://platform.claude.com/docs/en/managed-agents/workflow-runs">session budget that pauses every open workflow run</a> and a single-model setting for workflow agents make cost routing a configured policy rather than a convention.</p>
+<h2>Consulting angle</h2>
+<p><strong>Ask this week:</strong> If a policy hook, sandbox helper, or budget limit in your agent harness crashes or is misconfigured, does the agent stop or keep going, and has anyone tested that?</p>
+<h2>Repos worth watching</h2>
+<ul>
+<li><strong><a href="https://github.com/github/gh-aw">github/gh-aw</a></strong>: Agentic workflows for repositories, v0.91.8 shipped Oct 11 with multi-engine session timelines. <em>Layer: orchestration, evidence</em></li>
+<li><strong><a href="https://github.com/UKGovernmentBEIS/inspect_ai">UKGovernmentBEIS/inspect_ai</a></strong>: Evaluation framework with tool review and agent handoffs. <em>Layer: verification, evidence</em></li>
+<li><strong><a href="https://github.com/promptfoo/promptfoo">promptfoo/promptfoo</a></strong>: Evaluation and red-team testing for prompts and agents, 0.124.1 on Oct 8. <em>Layer: verification</em></li>
+<li><strong><a href="https://github.com/Arize-ai/phoenix">Arize-ai/phoenix</a></strong>: Tracing and evaluation platform, v20.21.0 on Oct 11. <em>Layer: evidence, verification</em></li>
+<li><strong><a href="https://github.com/Skyvern-AI/skyvern">Skyvern-AI/skyvern</a></strong>: Browser workflow automation with agents, v1.0.55 on Oct 1. <em>Layer: execution</em></li>
+</ul>
+<p><strong>Radar note:</strong> Candidate for weekend review: agent-written orchestration programs with budgets and fail-closed controls (Coding Agents, Watch closely).</p>
+<p><a href="https://staudt.github.io/sdlc-radar"><strong>View the current SDLC Radar</strong></a></p>
+</div></article></main></body></html>
