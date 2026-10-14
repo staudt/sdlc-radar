@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>AI SDLC Radar | 2026-10-14</title><link rel="stylesheet" href="../assets/style.css?v=20260924-1"></head>
+<body><header class="site-header"><div class="wrap header-row"><div><p class="eyebrow">AI SDLC Radar</p><h1>The harness is the thing to evaluate</h1></div><a class="button" href="../index.html">Back to Radar</a></div></header>
+<main class="wrap"><article class="card edition-page"><div class="edition-content">
+<p><strong>October 14, 2026</strong></p>
+<p>Today's theme is the agent harness as the thing you buy and test, not the model: where parallel agents run, how much the harness changes results, and how to test the tools websites now expose to agents, all of which decide whether your delivery quality depends on a vendor's demo or on your own evidence.</p>
+<h2>Main signal</h2>
+<p><strong>The harness, not the model, is becoming the unit that has to be evaluated.</strong> Meta is gating its strongest coding model behind its own agent product, and a new 300-task benchmark finds the same models score several points apart depending on which harness runs them. A team that picks a model from a leaderboard can therefore ship an agent that fails on its own code.</p>
+<blockquote style="margin:12px 0;padding:8px 14px;border-left:4px solid #c084fc;background:#f6f1fb;"><strong>"The same model scores differently in different agent harnesses, so test the harness on your own tasks, not the model on a leaderboard."</strong></blockquote>
+<p><a href="https://staudt.github.io/sdlc-radar"><strong>View the current SDLC Radar</strong></a></p>
+<h2>Quick News</h2>
+<ul>
+<li><strong><a href="https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder">Meta Muse Wonder</a></strong> (Oct 12) is Meta's first frontier model, priced like <a href="https://pasqualepillitteri.it/en/news/23176/muse-wonder-launches-opus-5-5-prices-trails-benchmarks">Claude Opus 5.5</a> at $4 and $20 per million tokens, with vendor-reported coding scores that outside indexes have not yet confirmed.</li>
+</ul>
+<h2>1. Parallel coding agents get isolated worktrees and a bundled model <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#c084fc;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Watch closely</span></h2>
+<p><em>Layer: orchestration, execution</em></p>
+<p>Meta's Muse Code splits large jobs across <a href="https://runtimewire.com/article/meta-launches-muse-code-terminal-agent-large-repositories">parallel subagents, each in its own git worktree</a>, and the strongest model, Muse Wonder Full, is <a href="https://pasqualepillitteri.it/en/news/23176/muse-wonder-launches-opus-5-5-prices-trails-benchmarks">available only to Muse Code subscribers</a>. One <a href="https://www.eesel.ai/blog/meta-muse-code-review">review</a> notes an OS sandbox and approvals are on from the first run, while another analysis says child agents share the lead's workspace unless worktree isolation is enabled.</p>
+<p><strong>Why it matters:</strong> When parallel agents write to one working copy they can overwrite each other, so confirm isolation is on and test that two agents editing the same file cannot collide.</p>
+<h2>2. The harness changes benchmark results <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#fbbf24;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Experiment now</span></h2>
+<p><em>Layer: verification, orchestration</em></p>
+<p>CheckerBench (<a href="https://www.alphaxiv.org/abs/2610.07557">arXiv 2610.07557</a>, submitted Oct 6) asks agents to write static-analysis checkers from 300 real vulnerability tasks, and <a href="https://aiweekly.co/alerts/checkerbench-top-agent-clears-4533-of-300-checker-tasks">AI Weekly's summary</a> reports a best score of 45.33% and mean pass rates of 36.95% under OpenCode, 33.81% under Claude Code, and 26.14% under Hermes Agent. The per-harness figures come from that secondary summary, so check them against the paper.</p>
+<p><strong>Why it matters:</strong> A harness swap can move results by more than a model upgrade, so run your own task set through each candidate harness before standardizing.</p>
+<h2>3. Websites start exposing tools that tests must call <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#fbbf24;color:#08111d;font-size:12px;font-weight:600;vertical-align:middle;">Experiment now</span></h2>
+<p><em>Layer: verification, execution</em></p>
+<p>Playwright 1.64 (<a href="https://testdino.com/blog/playwright-1-64-release">Oct 7, per TestDino</a>) adds <code>page.webmcp</code> and <code>frame.webmcp</code> to list and call the tools a page registers for agents, and Playwright MCP offers them to agents by default. The browser API is experimental and needs a Chromium flag.</p>
+<p><strong>Why it matters:</strong> If your product registers tools for agents, they are a user interface nobody is testing, so add a contract test that lists and calls each one.</p>
+<h2>Field lines</h2>
+<ul>
+<li><strong>"The same model scores differently in different agent harnesses, so test the harness on your own tasks, not the model on a leaderboard."</strong> (<a href="https://aiweekly.co/alerts/checkerbench-top-agent-clears-4533-of-300-checker-tasks">AI Weekly on CheckerBench</a>)</li>
+<li><strong>"Parallel coding agents need their own isolated working copies, or one agent's edits can overwrite another's."</strong> (<a href="https://runtimewire.com/article/meta-launches-muse-code-terminal-agent-large-repositories">Runtime Wire on Meta Muse Code</a>)</li>
+<li><strong>"If your website exposes tools to AI agents, those tools are an interface that needs its own tests."</strong> (<a href="https://testdino.com/blog/playwright-1-64-release">TestDino on Playwright 1.64</a>)</li>
+</ul>
+<h2>Consulting angle</h2>
+<p><strong>Ask this week:</strong> Which agent harness does your team run today, and have you measured it against your own tasks, or only against a vendor's published scores?</p>
+<h2>Repos worth watching</h2>
+<p>Withheld today: GitHub release data could not be read in this run, so the 14-day activity rule could not be checked for any new repo.</p>
+<p><strong>Radar note:</strong> Candidate for weekend review: page-exposed agent tools (WebMCP) as a test surface (Testing, Watch closely).</p>
+<p><a href="https://staudt.github.io/sdlc-radar"><strong>View the current SDLC Radar</strong></a></p>
+</div></article></main></body></html>
