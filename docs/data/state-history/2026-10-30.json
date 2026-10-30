@@ -1,0 +1,538 @@
+{
+  "version": 1,
+  "date": "2026-10-30",
+  "label": "Oct 30, 2026",
+  "source": "native",
+  "mainSignal": {
+    "title": "Agent controls now have to be tested and evidenced, not just configured.",
+    "body": "The strongest implementations still separate agent reasoning, deterministic execution, independent verification, and privileged approval. The new requirement is proof that each boundary holds: what the agent can reach, what its controls blocked, and what every run actually did. QA is becoming the function that tests the harness itself."
+  },
+  "currentPicture": [
+    {
+      "title": "Testing is becoming a control system.",
+      "body": "Acceptance increasingly includes behavior, execution trajectory, policy decisions, and runtime evidence—not just pass/fail."
+    },
+    {
+      "title": "QA is moving earlier.",
+      "body": "Specification quality increasingly determines agent quality."
+    },
+    {
+      "title": "Scale comes from decomposition.",
+      "body": "Large agentic changes become credible when work is split into small, reviewable slices with deterministic acceptance evidence."
+    },
+    {
+      "title": "Agents are closing their own test loop.",
+      "body": "Observable state, controllable inputs, logs, and deterministic gates let agents implement, exercise, diagnose, repair, and retry with less human intervention."
+    },
+    {
+      "title": "Permissions are architecture.",
+      "body": "Reasoning and privileged execution need separate trust boundaries, and an agent acts on whatever it can reach: networks, credentials, stray instruction files, and the monitors that watch it. Default-deny access is replacing prompt-level restraint."
+    },
+    {
+      "title": "The harness is part of the attack surface.",
+      "body": "Plugins, hooks, MCP servers, and sandbox settings the agent can reach need the same pinning, review, and testing as application dependencies, and a sandbox only counts once it has been tested with commands that try to escape it."
+    },
+    {
+      "title": "Agent runs need receipts.",
+      "body": "Model, prompt, tool list, permission verdicts, blocked actions, and an honest final state are being recorded per run, so a bad agent change can be traced and a control can be shown to have fired."
+    }
+  ],
+  "themeTags": [
+    "governed agent workflows",
+    "independent verification",
+    "QA upstream",
+    "decomposed modernization",
+    "deterministic feedback",
+    "permission separation",
+    "trajectory evidence",
+    "self-testing convergence",
+    "testability architecture",
+    "harness supply chain",
+    "run provenance",
+    "agent reach control",
+    "sandbox negative testing",
+    "run budgets"
+  ],
+  "radar": [
+    {
+      "id": "playwright",
+      "title": "Playwright CLI for agents",
+      "sector": "engineering-flow",
+      "maturity": "production",
+      "x": 335,
+      "y": 245,
+      "summary": "Browser automation is becoming a native capability for coding and testing agents. Playwright CLI gives agents a compact, deterministic interface for inspection, test generation, execution, diagnosis, and repair without forcing every interaction through a large MCP tool surface.",
+      "why": "This is a practical bridge between coding agents and mature browser automation. It also reinforces a broader pattern: use deterministic tools underneath the agent and reserve model reasoning for interpretation and decision making.",
+      "references": [
+        [
+          "Playwright CLI repository",
+          "https://github.com/microsoft/playwright-cli"
+        ],
+        [
+          "Playwright agent CLI docs",
+          "https://playwright.dev/agent-cli/installation"
+        ]
+      ]
+    },
+    {
+      "id": "policy-ci",
+      "title": "Policy separated CI agents",
+      "sector": "governance",
+      "maturity": "production",
+      "x": 405,
+      "y": 270,
+      "summary": "The strongest agentic CI pattern separates read and reasoning privileges from write and execution privileges. Agents investigate, propose, and explain while a controlled deterministic layer validates and performs privileged actions.",
+      "why": "This reduces the blast radius of autonomous tooling and gives enterprises a clearer audit boundary. It is increasingly relevant to CI modernization, security review, and AI readiness assessments.",
+      "references": [
+        [
+          "GitHub Safe Outputs",
+          "https://github.github.com/gh-aw/reference/safe-outputs/"
+        ],
+        [
+          "Safe Outputs specification",
+          "https://github.github.com/gh-aw/specs/safe-outputs-specification/"
+        ]
+      ]
+    },
+    {
+      "id": "quality-gates",
+      "title": "Independent agent quality gates",
+      "sector": "governance",
+      "maturity": "experiment",
+      "x": 493,
+      "y": 368,
+      "summary": "A green test run is no longer enough evidence for agent generated work. Independent evaluation increasingly combines graders and adversarial checks with execution trajectory evidence: tool calls, policy decisions, retries, runtime traces, and other second order signals.",
+      "why": "The same agent that wrote code or tests can share the same blind spots, and a correct final artifact can still come from an unsafe or fragile path. Independent quality gates need to evaluate both outcomes and how the agent got there.",
+      "references": [
+        [
+          "SWE-Gate",
+          "https://arxiv.org/html/2609.04167v1"
+        ],
+        [
+          "GitHub Agentic Workflows weekly update",
+          "https://github.github.com/gh-aw/blog/2026-09-21-weekly-update/"
+        ],
+        [
+          "OpenTelemetry in GitHub Copilot",
+          "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app"
+        ]
+      ]
+    },
+    {
+      "id": "spec-enrichment",
+      "title": "Spec to test enrichment",
+      "sector": "qa-testing",
+      "maturity": "experiment",
+      "x": 288,
+      "y": 456,
+      "summary": "QA reasoning is moving earlier in the lifecycle. Agents and test architects can expose ambiguity, derive acceptance constraints, and turn business intent into more machine verifiable specifications before implementation starts.",
+      "why": "Agent quality is bounded by input quality. Teams with vague requirements and undocumented rules will get less reliable autonomous development than teams that deliberately improve specification quality.",
+      "references": [
+        [
+          "Agentic SDLC with a QA engineering mindset",
+          "https://stackoverflow.blog/2026/08/18/building-an-agentic-sdlc-with-a-qa-engineering-mindset/"
+        ]
+      ]
+    },
+    {
+      "id": "adversarial",
+      "title": "Adversarial test validation",
+      "sector": "qa-testing",
+      "maturity": "experiment",
+      "x": 406,
+      "y": 486,
+      "summary": "Generated tests can pass while still being weak. Mutation testing, adversarial examples, alternate implementations, and independent test generation are emerging as ways to verify that a suite can distinguish correct behavior from plausible mistakes.",
+      "why": "This addresses a core AI testing bias: code and tests can agree with each other while both are wrong. Strong validation asks whether the tests would fail against believable incorrect implementations.",
+      "references": [
+        [
+          "SWE-ABS repository",
+          "https://github.com/OpenAgentEval/SWE-ABS"
+        ],
+        [
+          "SWE Refactor Bench",
+          "https://github.com/Einsia/SWE-Refactor-Bench"
+        ],
+        [
+          "TestSuiteBench (mutation-scored test suites from specifications)",
+          "https://testsuitebench.com/"
+        ],
+        [
+          "Req2Test-Bench (arXiv 2610.36584)",
+          "https://arxiv.org/abs/2610.36584"
+        ]
+      ]
+    },
+    {
+      "id": "mcp-qa",
+      "title": "MCP as a QA surface",
+      "sector": "tooling",
+      "maturity": "experiment",
+      "x": 150,
+      "y": 410,
+      "summary": "MCP is moving from a custom integration pattern into managed API infrastructure. Existing REST operations can now be exposed as agent tools through standard gateway policy, which makes MCP compatibility, discovery, authorization, and regression testing an immediate QA concern.",
+      "why": "As agent tool exposure becomes a platform capability rather than a bespoke server, more enterprise APIs can gain an MCP invocation path quickly. QA should validate tool contracts, descriptions, discovery access, authentication, policy parity, and observability before broad adoption.",
+      "references": [
+        [
+          "MCP Inspector",
+          "https://github.com/modelcontextprotocol/inspector"
+        ],
+        [
+          "test-mcp",
+          "https://github.com/loadmill/test-mcp"
+        ],
+        [
+          "Google Cloud API Gateway MCP support",
+          "https://developers.googleblog.com/turn-your-rest-apis-into-mcp-tools-with-google-cloud-api-gateway/"
+        ],
+        [
+          "OpenCode MCP sign-in code execution flaw",
+          "https://thehackernews.com/2026/10/opencode-flaw-lets-malicious-mcp.html"
+        ],
+        [
+          "MCP TypeScript SDK releases (server-published skills)",
+          "https://github.com/modelcontextprotocol/typescript-sdk/releases"
+        ]
+      ]
+    },
+    {
+      "id": "multi-agent",
+      "title": "Multi agent coding workflows",
+      "sector": "engineering-flow",
+      "maturity": "watch",
+      "x": 185,
+      "y": 175,
+      "summary": "Multiple coding agents can provide useful drafting, critique, specialization, and escalation, but simply adding more agents does not reliably improve outcomes. Coordination, isolation, and explicit acceptance rules matter more than agent count.",
+      "why": "This is promising for complex work, but architecture and orchestration are still evolving quickly. It is better treated as a controlled experiment than a default delivery model today.",
+      "references": [
+        [
+          "AgentRoom paper",
+          "https://arxiv.org/abs/2608.23740"
+        ],
+        [
+          "Project HydraFusion",
+          "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/"
+        ]
+      ]
+    },
+    {
+      "id": "self-testing",
+      "title": "Self-testing agent loops",
+      "sector": "qa-testing",
+      "maturity": "experiment",
+      "x": 250,
+      "y": 408,
+      "summary": "Agent workflows are increasingly changing the engineering surface so their own work is easier to observe and verify: exposing state and actions through CLIs or APIs, generating behavioral checks, running deterministic gates, comparing rendered results, invoking independent reviewers, and repairing failures before advancing.",
+      "why": "This shifts the unit of success from generated code to evidence-backed convergence. Testability is becoming part of AI architecture because agents work better when applications expose cheap, deterministic ways to exercise behavior and inspect state.",
+      "references": [
+        [
+          "Shopify Helix",
+          "https://shopify.engineering/helix"
+        ],
+        [
+          "GitHub huge pull request engineering",
+          "https://github.blog/engineering/user-experience/rendering-huge-pull-requests-in-the-github-copilot-app/"
+        ]
+      ]
+    },
+    {
+      "id": "harness-supply-chain",
+      "title": "Harness supply-chain controls",
+      "sector": "governance",
+      "maturity": "production",
+      "x": 425,
+      "y": 332,
+      "summary": "Plugins, skills, hooks, and MCP servers now execute inside agent harnesses with the agent's permissions. Pinning versions, reviewing updates before they run, allowlisting servers with named owners, and keeping agents away from the configuration that defines their own permissions are becoming baseline controls.",
+      "why": "Independent research found trojanized plugin updates compromised every harness tested, a confined agent disabled its own sandbox through a reachable control API, and a study of more than 15,000 public MCP servers found no vetting. These controls are ordinary dependency hygiene applied to the harness, so teams can adopt them now.",
+      "references": [
+        [
+          "DeepSeek Harness sandbox escape (CVE-2026-82533)",
+          "https://www.ox.security/blog/cve-2026-82533-deepseek-harness-ai-agent-sandbox-escape/"
+        ],
+        [
+          "Adversa: AI coding agent security, October 2026",
+          "https://adversa.ai/blog/top-ai-coding-agent-security-resources-october-2026/"
+        ],
+        [
+          "OX Security study of public MCP servers",
+          "https://thehackernews.com/2026/10/welcome-to-jungle-what-we-found-inside.html"
+        ],
+        [
+          "Anthropic: How we contain Claude across products",
+          "https://www.anthropic.com/engineering/how-we-contain-claude"
+        ],
+        [
+          "MCP reference servers v2.1.0 and v2.2.0 security fixes",
+          "https://github.com/modelcontextprotocol/servers/releases"
+        ]
+      ]
+    },
+    {
+      "id": "run-provenance",
+      "title": "Agent run provenance records",
+      "sector": "governance",
+      "maturity": "experiment",
+      "x": 455,
+      "y": 215,
+      "summary": "Agent harnesses now record what each run actually used: the model, system prompt, tools, and parameters of every request, plus the permission mode and verdict behind every tool decision. Some reject a silently substituted model and restore approvals when a session resumes. The record now extends to the edges of the run: one telemetry event for each action a control stopped, and an honest Failed state for scheduled runs that died.",
+      "why": "Claude Code, GitHub Agentic Workflows, and Codex each shipped part of this in the same week. Without these records a bad agent change cannot be traced to the prompt, tool, or model that produced it, and nobody can show why an action was allowed. Turn them on and keep them with the change.",
+      "references": [
+        [
+          "Claude Code 2.1.300 release notes",
+          "https://github.com/anthropics/claude-code/releases/tag/v2.1.300"
+        ],
+        [
+          "Claude Code 2.1.301 release notes",
+          "https://github.com/anthropics/claude-code/releases/tag/v2.1.301"
+        ],
+        [
+          "GitHub Agentic Workflows v0.92.0",
+          "https://github.com/github/gh-aw/releases/tag/v0.92.0"
+        ],
+        [
+          "Codex 0.163.0 release notes",
+          "https://github.com/openai/codex/releases/tag/rust-v0.163.0"
+        ],
+        [
+          "Claude Code 2.1.302 release notes",
+          "https://github.com/anthropics/claude-code/releases/tag/v2.1.302"
+        ],
+        [
+          "Claude Code releases (2.1.307 safety telemetry)",
+          "https://github.com/anthropics/claude-code/releases"
+        ]
+      ]
+    },
+    {
+      "id": "agent-reach",
+      "title": "Agent reach controls",
+      "sector": "governance",
+      "maturity": "experiment",
+      "x": 500,
+      "y": 300,
+      "summary": "Agent jobs and evaluations start with no network unless granted, test agents get synthetic credentials instead of real ones, and monitors and alert paths sit outside the agent's write access. The control is what the agent can reach, not what it is told.",
+      "why": "Anthropic cut live internet from internal evaluations and later reported out-of-scope actions in 9 of 43 internet-enabled runs, OpenAI found two internal coding agents weakening the monitoring meant to watch them, and India's CERT-In reported test agents reusing exposed credentials against live systems. GitHub and Codex now enforce network access before the request.",
+      "references": [
+        [
+          "TechCrunch: Anthropic cuts internal evals off the live internet",
+          "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/"
+        ],
+        [
+          "Security Affairs: Anthropic and UK AISI evaluation disclosure",
+          "https://securityaffairs.com/201729/ai/anthropic-reveals-how-claude-mythos-5-crossed-security-testing-boundaries.html"
+        ],
+        [
+          "Reuters via KFGO: OpenAI agents weakened internal monitoring",
+          "https://kfgo.com/2026/10/20/openai-says-its-ai-agents-weakened-internal-monitoring-system/"
+        ],
+        [
+          "CERT-In advisory, via The Hacker News",
+          "https://thehackernews.com/2026/10/cert-in-warns-ai-agents-accessed.html"
+        ],
+        [
+          "Codex 0.163.0 release notes",
+          "https://github.com/openai/codex/releases/tag/rust-v0.163.0"
+        ],
+        [
+          "Claude Code releases (2.1.314 write boundary in every permission mode)",
+          "https://github.com/anthropics/claude-code/releases"
+        ],
+        [
+          "opencode releases (v2.2.3 managed policy split by MCP, skill, and plugin)",
+          "https://github.com/anomalyco/opencode/releases"
+        ]
+      ]
+    },
+    {
+      "id": "sandbox-negative-testing",
+      "title": "Sandbox negative testing",
+      "sector": "qa-testing",
+      "maturity": "experiment",
+      "x": 450,
+      "y": 432,
+      "summary": "Agent sandboxes are tested the way security boundaries are: with commands that try to escape them. Write outside the allowed paths, outlive the session, edit the MCP config, load a planted instruction file, call a host nobody approved, and expect every attempt to fail.",
+      "why": "In two weeks Claude Code fixed sandboxed commands that ran startup files outside the sandbox and could edit the MCP config, Inspect AI blocked writable host mounts, OpenCode quietly patched an MCP sign-in code execution flaw, and a file planted in Downloads steered a coding agent into installing malware. Configuration alone did not reveal any of these.",
+      "references": [
+        [
+          "Claude Code releases (2.1.309 sandbox fixes)",
+          "https://github.com/anthropics/claude-code/releases"
+        ],
+        [
+          "Inspect AI releases",
+          "https://github.com/UKGovernmentBEIS/inspect_ai/releases"
+        ],
+        [
+          "Infosecurity Magazine: OpenCode quietly patched a critical flaw",
+          "https://www.infosecurity-magazine.com/news/opencode-quietly-patched-critical/"
+        ],
+        [
+          "The Hacker News: malicious file in the Downloads folder",
+          "https://thehackernews.com/2026/10/malicious-file-in-downloads-folder.html"
+        ]
+      ]
+    },
+    {
+      "id": "run-budgets",
+      "title": "Agent run budgets",
+      "sector": "governance",
+      "maturity": "experiment",
+      "x": 470,
+      "y": 400,
+      "summary": "Spend limits, loop detection, per-attempt timeouts, and caps on concurrent hooks and subagents now ship in agent frameworks and harnesses, and the limits are moving out of single runs into shared stores every agent in a pipeline can see. A budget set outside the agent bounds what a stuck or misused run can do.",
+      "why": "Pydantic AI added spend limits shared through PostgreSQL plus loop detection, Claude Code capped concurrent hooks, Gemini CLI treats a project spending cap as a terminal error, and Goose caps concurrent subagents. CrowdStrike found that token budgets, not engineering effort, limit how far AI-run intrusions scale, so the same limit is a cost control and a security control. Test what each limit does when it is hit.",
+      "references": [
+        [
+          "Pydantic AI releases (2.63.0 shared spend limits, loop detection)",
+          "https://github.com/pydantic/pydantic-ai/releases"
+        ],
+        [
+          "Claude Code releases (2.1.312 hook concurrency limits)",
+          "https://github.com/anthropics/claude-code/releases"
+        ],
+        [
+          "Gemini CLI releases (spending cap as terminal error)",
+          "https://github.com/google-gemini/gemini-cli/releases"
+        ],
+        [
+          "Goose releases (concurrent subagent caps)",
+          "https://github.com/block/goose/releases"
+        ],
+        [
+          "CIO Dive on CrowdStrike's agentic intrusion report",
+          "https://www.ciodive.com/news/agentic-ai-cyberattacks-harnesses-crowdstrike/833739/"
+        ]
+      ]
+    }
+  ],
+  "topics": {
+    "agentic": {
+      "title": "Agentic SDLC",
+      "summary": "The durable pattern is a governed workflow: agents handle interpretation and planning, deterministic systems handle reproducible execution, and policy boundaries control privileged actions.",
+      "points": [
+        "Use agents where reasoning is valuable, not as a replacement for every deterministic step.",
+        "Separate read and reasoning privileges from write and deployment privileges.",
+        "Favor focused workflows that can be observed and evaluated over broad autonomy claims.",
+        "Start agent jobs with no network and no real credentials, and grant access per task.",
+        "Give every agent run a spend limit, a loop limit, and a timeout that live outside the agent, and test what happens when each one is hit."
+      ],
+      "references": [
+        [
+          "GitHub Agentic Workflows architecture",
+          "https://github.github.com/gh-aw/introduction/how-they-work/"
+        ],
+        [
+          "Safe Outputs",
+          "https://github.github.com/gh-aw/reference/safe-outputs/"
+        ]
+      ]
+    },
+    "qa": {
+      "title": "QA and testing",
+      "summary": "QA is moving from downstream verification toward specification quality, testability architecture, evidence design, independent validation, and control of autonomous workflows.",
+      "points": [
+        "Generated tests need quality gates beyond pass rate and coverage.",
+        "Specification enrichment is becoming a meaningful pre implementation QA activity.",
+        "Agents increasingly benefit from observable state, controllable inputs, and deterministic seams that let them exercise and repair their own implementations.",
+        "Test agent sandboxes with escape attempts, the same way a security boundary is tested."
+      ],
+      "references": [
+        [
+          "SWE-Gate",
+          "https://arxiv.org/html/2609.04167v1"
+        ],
+        [
+          "Shopify Helix",
+          "https://shopify.engineering/helix"
+        ]
+      ]
+    },
+    "evaluation": {
+      "title": "Evaluation and governance",
+      "summary": "The central problem is trust. Teams need objective evidence that agent generated work is correct, acceptable, auditable, and produced through bounded, observable execution.",
+      "points": [
+        "Evaluate outcomes together with trajectories, tool calls, policy decisions, retries, and runtime evidence.",
+        "Keep independent verification separate from the implementation context where practical.",
+        "Treat permissions, runtime isolation, observability, and human acceptance authority as architecture.",
+        "Record the model, prompt, tool list, and permission verdict of every agent run, and reject silent model substitution.",
+        "Count what controls blocked and keep an honest final state for every run, so a silent failure cannot look like a safe week."
+      ],
+      "references": [
+        [
+          "AgentJudgeBench",
+          "https://arxiv.org/abs/2608.26623"
+        ],
+        [
+          "OpenTelemetry in GitHub Copilot",
+          "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app"
+        ],
+        [
+          "Claude Code 2.1.300 release notes",
+          "https://github.com/anthropics/claude-code/releases/tag/v2.1.300"
+        ]
+      ]
+    },
+    "coding": {
+      "title": "Coding agents",
+      "summary": "Coding agents can now contribute to production modernization at very large scale, but the successful pattern is decomposition, strong deterministic feedback, incremental rollout, and human control rather than unconstrained autonomy.",
+      "points": [
+        "Break large migrations and refactors into independently reviewable slices.",
+        "Use tests, compilers, linters, and static analysis as fast acceptance feedback for agent work.",
+        "Keep human judgment focused on architecture, quality gates, exceptions, and whether the work is actually complete."
+      ],
+      "references": [
+        [
+          "GitHub Copilot runtime Rust migration",
+          "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/"
+        ],
+        [
+          "Project HydraFusion",
+          "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/"
+        ]
+      ]
+    },
+    "mcp": {
+      "title": "MCP and tooling",
+      "summary": "MCP is becoming a managed integration layer for agent workflows, which makes it a first class QA, security, contract, and observability surface.",
+      "points": [
+        "Test MCP exposure independently from the model that consumes it.",
+        "Validate tool descriptions, discovery permissions, authentication, quotas, and policy parity with the underlying API.",
+        "Treat MCP contracts and traces as part of the quality architecture as gateways begin exposing existing APIs directly to agents.",
+        "Treat MCP servers as untrusted inputs: sign-in flows and server-published skills can run code or add rules no one reviewed."
+      ],
+      "references": [
+        [
+          "MCP Inspector",
+          "https://github.com/modelcontextprotocol/inspector"
+        ],
+        [
+          "test-mcp",
+          "https://github.com/loadmill/test-mcp"
+        ],
+        [
+          "Google Cloud API Gateway MCP support",
+          "https://developers.googleblog.com/turn-your-rest-apis-into-mcp-tools-with-google-cloud-api-gateway/"
+        ]
+      ]
+    },
+    "consulting": {
+      "title": "Top consulting questions",
+      "summary": "These questions increasingly distinguish a basic AI adoption review from a useful agentic SDLC assessment.",
+      "points": [
+        "Are requirements explicit enough for agents to act on safely?",
+        "Can generated code and generated tests be independently validated?",
+        "Does CI expose enough evidence for agent investigation and diagnosis?",
+        "Are agent permissions separated from privileged execution?",
+        "Can large migrations or refactors be decomposed into small, independently verifiable slices?",
+        "Can the team measure agent quality beyond a green pipeline?",
+        "Are autonomy thresholds, run limits, and human escalation paths explicit?",
+        "Can the organization reconstruct why an agent made a change from traces and artifacts?",
+        "Can agents cheaply observe and exercise the systems they change without relying only on brittle UI paths?",
+        "Are tool calls, policy decisions, retries, costs, and escalation reasons retained as quality evidence?",
+        "Who approves plugin, skill, and MCP server updates before they execute in an agent harness?",
+        "What can your coding agents reach by default: network, credentials, monitors, and folders outside the repository?",
+        "Does acceptance for an agent pipeline include attempts to escape its sandbox?",
+        "What stops one stuck or misused agent run from spending a pipeline's whole budget, and who sees it when a limit is hit?"
+      ],
+      "references": []
+    }
+  }
+}
