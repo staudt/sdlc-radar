@@ -61,6 +61,12 @@
       "label": "Nov 13, 2026",
       "path": "2026-11-13.json",
       "source": "native"
+    },
+    {
+      "date": "2026-11-20",
+      "label": "Nov 20, 2026",
+      "path": "2026-11-20.json",
+      "source": "native"
     }
   ]
 }
